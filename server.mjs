@@ -4,6 +4,7 @@ import { extname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { audits, evidence, hcps, researchProfiles, safetyCases } from "./data.mjs";
 import { openAlexDiscovery } from "./generated/openalex-discovery.mjs";
+import { cohortDiscovery } from "./generated/cohort-discovery.mjs";
 import { caseCompleteness, transitionCase } from "./domain.mjs";
 
 const root=fileURLToPath(new URL(".",import.meta.url));
@@ -25,6 +26,7 @@ async function api(req,res,url){
   if(req.method==="GET"&&url.pathname==="/api/hcps")return json(res,200,{items:scored(),modelVersion:"2.3"});
   if(req.method==="GET"&&url.pathname==="/api/research")return json(res,200,{items:researchProfiles,method:"Public-source records are identity-resolved before inclusion; poster and abstract records retain a review state when event-level confirmation is incomplete.",researchedAt:"2026-09-24"});
   if(req.method==="GET"&&url.pathname==="/api/discovery")return json(res,200,openAlexDiscovery);
+  if(req.method==="GET"&&url.pathname==="/api/candidates")return json(res,200,cohortDiscovery);
   if(req.method==="GET"&&url.pathname==="/api/evidence")return json(res,200,{items:evidence});
   if(req.method==="GET"&&url.pathname==="/api/safety-cases")return json(res,200,{items:cases.map(x=>({...x,completeness:caseCompleteness(x)}))});
   if(req.method==="POST"&&/^\/api\/safety-cases\/[^/]+\/transition$/.test(url.pathname)){try{const id=url.pathname.split("/")[3],index=cases.findIndex(x=>x.id===id);if(index<0)return json(res,404,{error:"Case not found"});const input=await body(req);cases[index]=transitionCase(cases[index],input.status);auditLog.unshift({at:new Date().toISOString(),actor:"Workspace reviewer",action:`Transitioned case to ${input.status}`,record:id});return json(res,200,{...cases[index],completeness:caseCompleteness(cases[index])})}catch(error){return json(res,409,{error:error.message})}}
