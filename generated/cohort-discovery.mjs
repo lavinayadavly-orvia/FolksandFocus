@@ -1,5 +1,5 @@
 export const cohortDiscovery={
-  "generatedAt": "2026-09-24T10:44:12.220Z",
+  "generatedAt": "2026-09-24T10:47:35.175Z",
   "source": "OpenAlex",
   "method": "India-affiliated authors found in recent obesity, diabetes, metabolic-health and GLP-1 literature; candidates require clinical-role and identity review.",
   "profiles": [
@@ -27,7 +27,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.diabres.2021.109119"
         }
       ],
-      "sampleCitations": 20618
+      "sampleCitations": 20618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5003556216",
@@ -67,7 +68,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(24)01296-0"
         }
       ],
-      "sampleCitations": 14572
+      "sampleCitations": 14572,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5022460686",
@@ -100,7 +102,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1002/jev2.12404"
         }
       ],
-      "sampleCitations": 13182
+      "sampleCitations": 13182,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5021198421",
@@ -133,7 +136,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1097/ccm.0000000000005337"
         }
       ],
-      "sampleCitations": 8904
+      "sampleCitations": 8904,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5004099965",
@@ -171,7 +175,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1093/ageing/afac205"
         }
       ],
-      "sampleCitations": 6792
+      "sampleCitations": 6792,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5027423486",
@@ -204,7 +209,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.jhep.2023.03.017"
         }
       ],
-      "sampleCitations": 6642
+      "sampleCitations": 6642,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5083077921",
@@ -237,7 +243,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamaoncol.2021.6987"
         }
       ],
-      "sampleCitations": 6300
+      "sampleCitations": 6300,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5061436907",
@@ -270,7 +277,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamaoncol.2021.6987"
         }
       ],
-      "sampleCitations": 6300
+      "sampleCitations": 6300,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5014872188",
@@ -303,7 +311,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamaoncol.2021.6987"
         }
       ],
-      "sampleCitations": 6300
+      "sampleCitations": 6300,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5063950280",
@@ -336,7 +345,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamaoncol.2021.6987"
         }
       ],
-      "sampleCitations": 6300
+      "sampleCitations": 6300,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5078532240",
@@ -369,7 +379,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamaoncol.2021.6987"
         }
       ],
-      "sampleCitations": 6300
+      "sampleCitations": 6300,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5089799809",
@@ -403,7 +414,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamaoncol.2021.6987"
         }
       ],
-      "sampleCitations": 6300
+      "sampleCitations": 6300,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5059751626",
@@ -442,7 +454,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s12943-022-01543-7"
         }
       ],
-      "sampleCitations": 4775
+      "sampleCitations": 4775,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5061858117",
@@ -475,7 +488,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41572-022-00376-4"
         }
       ],
-      "sampleCitations": 4290
+      "sampleCitations": 4290,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5074548376",
@@ -509,7 +523,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1177/17474930241308142"
         }
       ],
-      "sampleCitations": 4041
+      "sampleCitations": 4041,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5036931186",
@@ -543,7 +558,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41581-024-00820-6"
         }
       ],
-      "sampleCitations": 3978
+      "sampleCitations": 3978,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5114090367",
@@ -576,7 +592,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-024-01735-1"
         }
       ],
-      "sampleCitations": 3939
+      "sampleCitations": 3939,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5111145477",
@@ -609,7 +626,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-024-01735-1"
         }
       ],
-      "sampleCitations": 3939
+      "sampleCitations": 3939,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5100428876",
@@ -642,7 +660,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-024-01735-1"
         }
       ],
-      "sampleCitations": 3939
+      "sampleCitations": 3939,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5069096470",
@@ -668,7 +687,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41586-022-04554-y"
         }
       ],
-      "sampleCitations": 3794
+      "sampleCitations": 3794,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5007152311",
@@ -694,7 +714,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41586-022-04554-y"
         }
       ],
-      "sampleCitations": 3794
+      "sampleCitations": 3794,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5083105018",
@@ -720,7 +741,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5090649973",
@@ -747,7 +769,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5035826702",
@@ -773,7 +796,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5108017933",
@@ -799,7 +823,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5032683385",
@@ -825,7 +850,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5037442385",
@@ -853,7 +879,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5051429490",
@@ -879,7 +906,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5081233132",
@@ -905,7 +933,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.gendis.2022.02.007"
         }
       ],
-      "sampleCitations": 3618
+      "sampleCitations": 3618,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5101417870",
@@ -931,7 +960,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1093/ageing/afac205"
         }
       ],
-      "sampleCitations": 3396
+      "sampleCitations": 3396,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5011852985",
@@ -957,7 +987,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2214-109x(20)30488-5"
         }
       ],
-      "sampleCitations": 3276
+      "sampleCitations": 3276,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5064126550",
@@ -983,7 +1014,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2214-109x(20)30488-5"
         }
       ],
-      "sampleCitations": 3276
+      "sampleCitations": 3276,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5080028911",
@@ -1009,7 +1041,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2214-109x(20)30488-5"
         }
       ],
-      "sampleCitations": 3276
+      "sampleCitations": 3276,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5075173721",
@@ -1035,7 +1068,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2214-109x(20)30488-5"
         }
       ],
-      "sampleCitations": 3276
+      "sampleCitations": 3276,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5039764386",
@@ -1068,7 +1102,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fphar.2022.806470"
         }
       ],
-      "sampleCitations": 3231
+      "sampleCitations": 3231,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5024186329",
@@ -1101,7 +1136,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fphar.2022.806470"
         }
       ],
-      "sampleCitations": 3231
+      "sampleCitations": 3231,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5100727612",
@@ -1134,7 +1170,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fphar.2022.806470"
         }
       ],
-      "sampleCitations": 3231
+      "sampleCitations": 3231,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5083364962",
@@ -1167,7 +1204,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fchem.2023.1158198"
         }
       ],
-      "sampleCitations": 2976
+      "sampleCitations": 2976,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5101843226",
@@ -1200,7 +1238,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fchem.2023.1158198"
         }
       ],
-      "sampleCitations": 2976
+      "sampleCitations": 2976,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5074026853",
@@ -1226,7 +1265,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5101727037",
@@ -1252,7 +1292,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5054211468",
@@ -1278,7 +1319,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5101750943",
@@ -1304,7 +1346,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5084547746",
@@ -1330,7 +1373,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5045482907",
@@ -1356,7 +1400,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5076549394",
@@ -1382,7 +1427,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5002213266",
@@ -1408,7 +1454,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5104085886",
@@ -1434,7 +1481,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5073298647",
@@ -1461,7 +1509,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5023270538",
@@ -1488,7 +1537,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5009089083",
@@ -1514,7 +1564,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5021020035",
@@ -1540,7 +1591,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3389/fmicb.2022.962619"
         }
       ],
-      "sampleCitations": 2364
+      "sampleCitations": 2364,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5051120321",
@@ -1568,7 +1620,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41586-021-03767-x"
         }
       ],
-      "sampleCitations": 2260
+      "sampleCitations": 2260,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5022193110",
@@ -1596,7 +1649,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41586-021-03767-x"
         }
       ],
-      "sampleCitations": 2260
+      "sampleCitations": 2260,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5100765990",
@@ -1622,7 +1676,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/s12652-021-03612-z"
         }
       ],
-      "sampleCitations": 2092
+      "sampleCitations": 2092,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5030832334",
@@ -1648,7 +1703,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/s12652-021-03612-z"
         }
       ],
-      "sampleCitations": 2092
+      "sampleCitations": 2092,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5028878004",
@@ -1674,7 +1730,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5090120918",
@@ -1701,7 +1758,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5113364376",
@@ -1727,7 +1785,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5089037205",
@@ -1753,7 +1812,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5102140019",
@@ -1779,7 +1839,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5060413147",
@@ -1806,7 +1867,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5075818085",
@@ -1832,7 +1894,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5000444064",
@@ -1859,7 +1922,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41392-023-01608-z"
         }
       ],
-      "sampleCitations": 1912
+      "sampleCitations": 1912,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5002323246",
@@ -1892,7 +1956,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 1904
+      "sampleCitations": 1904,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5066823209",
@@ -1918,7 +1983,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01637-x"
         }
       ],
-      "sampleCitations": 1534
+      "sampleCitations": 1534,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5009275103",
@@ -1944,7 +2010,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01637-x"
         }
       ],
-      "sampleCitations": 1534
+      "sampleCitations": 1534,
+      "signalClass": "Rising Star"
     },
     {
       "openAlexId": "https://openalex.org/A5020841416",
@@ -1963,7 +2030,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/su13031318"
         }
       ],
-      "sampleCitations": 1509
+      "sampleCitations": 1509,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5102725110",
@@ -1982,7 +2050,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/su13031318"
         }
       ],
-      "sampleCitations": 1509
+      "sampleCitations": 1509,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5021465527",
@@ -2001,7 +2070,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1001/jamapediatrics.2021.1050"
         }
       ],
-      "sampleCitations": 1391
+      "sampleCitations": 1391,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5014407460",
@@ -2020,7 +2090,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.jiph.2021.10.020"
         }
       ],
-      "sampleCitations": 1329
+      "sampleCitations": 1329,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5048647653",
@@ -2039,7 +2110,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.jiph.2021.10.020"
         }
       ],
-      "sampleCitations": 1329
+      "sampleCitations": 1329,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5087730723",
@@ -2058,7 +2130,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/polym13071105"
         }
       ],
-      "sampleCitations": 1075
+      "sampleCitations": 1075,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5078540268",
@@ -2077,7 +2150,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/biology10040267"
         }
       ],
-      "sampleCitations": 994
+      "sampleCitations": 994,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5032761096",
@@ -2096,7 +2170,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/biology10040267"
         }
       ],
-      "sampleCitations": 994
+      "sampleCitations": 994,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5037289606",
@@ -2115,7 +2190,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/biology10040267"
         }
       ],
-      "sampleCitations": 994
+      "sampleCitations": 994,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5023633356",
@@ -2135,7 +2211,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/s00134-023-07050-7"
         }
       ],
-      "sampleCitations": 971
+      "sampleCitations": 971,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5001444078",
@@ -2154,7 +2231,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.scitotenv.2021.148539"
         }
       ],
-      "sampleCitations": 921
+      "sampleCitations": 921,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5101730509",
@@ -2173,7 +2251,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.scitotenv.2021.148539"
         }
       ],
-      "sampleCitations": 921
+      "sampleCitations": 921,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5113728802",
@@ -2192,7 +2271,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/978-981-19-5888-5"
         }
       ],
-      "sampleCitations": 877
+      "sampleCitations": 877,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5087159100",
@@ -2211,7 +2291,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/978-981-19-5888-5"
         }
       ],
-      "sampleCitations": 877
+      "sampleCitations": 877,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5089053829",
@@ -2230,7 +2311,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2215-0366(21)00025-0"
         }
       ],
-      "sampleCitations": 864
+      "sampleCitations": 864,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5013902016",
@@ -2250,7 +2332,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2215-0366(21)00025-0"
         }
       ],
-      "sampleCitations": 864
+      "sampleCitations": 864,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5021770752",
@@ -2269,7 +2352,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2215-0366(21)00025-0"
         }
       ],
-      "sampleCitations": 864
+      "sampleCitations": 864,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5048744714",
@@ -2288,7 +2372,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2215-0366(21)00025-0"
         }
       ],
-      "sampleCitations": 864
+      "sampleCitations": 864,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5070156674",
@@ -2308,7 +2393,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2215-0366(21)00025-0"
         }
       ],
-      "sampleCitations": 864
+      "sampleCitations": 864,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5030816525",
@@ -2327,7 +2413,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s12943-022-01543-7"
         }
       ],
-      "sampleCitations": 836
+      "sampleCitations": 836,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5100746904",
@@ -2349,7 +2436,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s12943-022-01543-7"
         }
       ],
-      "sampleCitations": 836
+      "sampleCitations": 836,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5025344292",
@@ -2368,7 +2456,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s12943-022-01543-7"
         }
       ],
-      "sampleCitations": 836
+      "sampleCitations": 836,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5110003700",
@@ -2387,7 +2476,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s1474-4422(23)00277-6"
         }
       ],
-      "sampleCitations": 784
+      "sampleCitations": 784,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5070871242",
@@ -2406,7 +2496,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s1474-4422(23)00277-6"
         }
       ],
-      "sampleCitations": 784
+      "sampleCitations": 784,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5023264598",
@@ -2425,7 +2516,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s1474-4422(23)00277-6"
         }
       ],
-      "sampleCitations": 784
+      "sampleCitations": 784,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5072132777",
@@ -2444,7 +2536,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s1474-4422(23)00277-6"
         }
       ],
-      "sampleCitations": 784
+      "sampleCitations": 784,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5110849765",
@@ -2463,7 +2556,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41588-022-01058-3"
         }
       ],
-      "sampleCitations": 774
+      "sampleCitations": 774,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5026415059",
@@ -2482,7 +2576,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41575-021-00523-4"
         }
       ],
-      "sampleCitations": 768
+      "sampleCitations": 768,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5090656568",
@@ -2501,7 +2596,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1038/s41575-021-00523-4"
         }
       ],
-      "sampleCitations": 768
+      "sampleCitations": 768,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5100706943",
@@ -2521,7 +2617,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/molecules28020887"
         }
       ],
-      "sampleCitations": 765
+      "sampleCitations": 765,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5014324285",
@@ -2540,7 +2637,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/molecules28020887"
         }
       ],
-      "sampleCitations": 765
+      "sampleCitations": 765,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5026917176",
@@ -2559,7 +2657,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/molecules28020887"
         }
       ],
-      "sampleCitations": 765
+      "sampleCitations": 765,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5047358509",
@@ -2578,7 +2677,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/molecules28020887"
         }
       ],
-      "sampleCitations": 765
+      "sampleCitations": 765,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5059402143",
@@ -2597,7 +2697,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/molecules28020887"
         }
       ],
-      "sampleCitations": 765
+      "sampleCitations": 765,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5102747774",
@@ -2616,7 +2717,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.3390/molecules28020887"
         }
       ],
-      "sampleCitations": 765
+      "sampleCitations": 765,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5046292901",
@@ -2636,7 +2738,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1073/pnas.2109217118"
         }
       ],
-      "sampleCitations": 448
+      "sampleCitations": 448,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5071942237",
@@ -2656,7 +2759,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1073/pnas.2109217118"
         }
       ],
-      "sampleCitations": 448
+      "sampleCitations": 448,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5003277271",
@@ -2675,7 +2779,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1073/pnas.2109217118"
         }
       ],
-      "sampleCitations": 448
+      "sampleCitations": 448,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5051048965",
@@ -2694,7 +2799,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s1474-4422(22)00188-0"
         }
       ],
-      "sampleCitations": 385
+      "sampleCitations": 385,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5052175315",
@@ -2713,7 +2819,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5085426579",
@@ -2732,7 +2839,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5054406085",
@@ -2751,7 +2859,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5018015693",
@@ -2770,7 +2879,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5044024787",
@@ -2789,7 +2899,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5039356089",
@@ -2808,7 +2919,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5012925236",
@@ -2827,7 +2939,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5015216596",
@@ -2846,7 +2959,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5055137073",
@@ -2865,7 +2979,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s0140-6736(25)01853-7"
         }
       ],
-      "sampleCitations": 370
+      "sampleCitations": 370,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5108055085",
@@ -2884,7 +2999,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1097/hjh.0000000000003563"
         }
       ],
-      "sampleCitations": 294
+      "sampleCitations": 294,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5006125872",
@@ -2903,7 +3019,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1002/smll.202502315"
         }
       ],
-      "sampleCitations": 280
+      "sampleCitations": 280,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5090654807",
@@ -2922,7 +3039,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1002/smll.202502315"
         }
       ],
-      "sampleCitations": 280
+      "sampleCitations": 280,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5001455092",
@@ -2941,7 +3059,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1002/smll.202502315"
         }
       ],
-      "sampleCitations": 280
+      "sampleCitations": 280,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5011597177",
@@ -2961,7 +3080,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1002/smll.202502315"
         }
       ],
-      "sampleCitations": 280
+      "sampleCitations": 280,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5018621533",
@@ -2980,7 +3100,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/j.kint.2022.06.013"
         }
       ],
-      "sampleCitations": 275
+      "sampleCitations": 275,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5072104731",
@@ -2999,7 +3120,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s42826-021-00101-4"
         }
       ],
-      "sampleCitations": 267
+      "sampleCitations": 267,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5018113339",
@@ -3018,7 +3140,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s42826-021-00101-4"
         }
       ],
-      "sampleCitations": 267
+      "sampleCitations": 267,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5107244406",
@@ -3037,7 +3160,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s42826-021-00101-4"
         }
       ],
-      "sampleCitations": 267
+      "sampleCitations": 267,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5100637397",
@@ -3056,7 +3180,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1186/s42826-021-00101-4"
         }
       ],
-      "sampleCitations": 267
+      "sampleCitations": 267,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5007281961",
@@ -3076,7 +3201,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1016/s2213-8587(21)00244-8"
         }
       ],
-      "sampleCitations": 255
+      "sampleCitations": 255,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5070377160",
@@ -3096,7 +3222,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.2147/dddt.s409373"
         }
       ],
-      "sampleCitations": 238
+      "sampleCitations": 238,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5028621461",
@@ -3116,7 +3243,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.2147/dddt.s409373"
         }
       ],
-      "sampleCitations": 238
+      "sampleCitations": 238,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5035840384",
@@ -3136,7 +3264,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.2147/dddt.s409373"
         }
       ],
-      "sampleCitations": 238
+      "sampleCitations": 238,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5113031982",
@@ -3156,7 +3285,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.2147/dddt.s409373"
         }
       ],
-      "sampleCitations": 238
+      "sampleCitations": 238,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5107838970",
@@ -3176,7 +3306,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.2147/dddt.s409373"
         }
       ],
-      "sampleCitations": 238
+      "sampleCitations": 238,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5047356132",
@@ -3195,7 +3326,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/s11695-023-06913-8"
         }
       ],
-      "sampleCitations": 215
+      "sampleCitations": 215,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5089391263",
@@ -3214,7 +3346,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1007/s11695-023-06913-8"
         }
       ],
-      "sampleCitations": 215
+      "sampleCitations": 215,
+      "signalClass": "Early Spark"
     },
     {
       "openAlexId": "https://openalex.org/A5075949562",
@@ -3233,7 +3366,8 @@ export const cohortDiscovery={
           "url": "https://doi.org/10.1002/ejhf.2894"
         }
       ],
-      "sampleCitations": 205
+      "sampleCitations": 205,
+      "signalClass": "Early Spark"
     }
   ]
 };

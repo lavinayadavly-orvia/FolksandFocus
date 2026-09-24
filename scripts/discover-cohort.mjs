@@ -23,7 +23,10 @@ for(const search of searches){
   }
 }
 
-const profiles=[...candidates.values()].map(item=>({...item,institutions:[...item.institutions],topics:[...item.topics]})).sort((a,b)=>b.sampleCitations-a.sampleCitations).slice(0,250);
+const profiles=[...candidates.values()].map(item=>{
+  const signalClass=item.sampleCitations>=1000&&item.sampleWorks.length>=2?"Rising Star":"Early Spark";
+  return{...item,institutions:[...item.institutions],topics:[...item.topics],signalClass};
+}).sort((a,b)=>b.sampleCitations-a.sampleCitations).slice(0,250);
 await mkdir(new URL("../generated/",import.meta.url),{recursive:true});
 const payload={generatedAt:new Date().toISOString(),source:"OpenAlex",method:"India-affiliated authors found in recent obesity, diabetes, metabolic-health and GLP-1 literature; candidates require clinical-role and identity review.",profiles};
 await writeFile(new URL("../generated/cohort-discovery.mjs",import.meta.url),`export const cohortDiscovery=${JSON.stringify(payload,null,2)};\n`);

@@ -14,6 +14,12 @@ function renderCoverage(){
   const socialProfiles=people.filter(person=>person.footprints.some(item=>item.type==="SOCIAL"));
   const socialRecords=people.flatMap(person=>person.footprints).filter(item=>item.type==="SOCIAL");
   const allFootprints=people.flatMap(person=>person.footprints);
+  const cohort=app.candidates?.profiles||[];
+  const dolClasses=[
+    {name:"Trendsetters",count:opinionLeaders.length,detail:"Established KOLs with verified public dossiers"},
+    {name:"Rising Stars",count:people.length-opinionLeaders.length+cohort.filter(item=>item.signalClass==="Rising Star").length,detail:"Upcoming KOLs with accelerating evidence signals"},
+    {name:"Early Sparks",count:cohort.filter(item=>item.signalClass==="Early Spark").length,detail:"Newer names entering the monitored landscape"}
+  ];
   const verifiedDiscovery=app.discovery?.profiles.filter(item=>item.status==="VERIFIED")||[];
   const discoveredWorks=verifiedDiscovery.reduce((sum,item)=>sum+(item.recentWorks?.length||0),0);
   const discoveredCitations=verifiedDiscovery.reduce((sum,item)=>sum+(item.citedByCount||0),0);
@@ -21,13 +27,14 @@ function renderCoverage(){
   const bars=(items,max)=>items.map(([name,value])=>`<div class="distribution-row"><span>${esc(name)}</span><div class="distribution-track"><i style="width:${value/max*100}%"></i></div><strong>${value}</strong></div>`).join("");
   $("#roleDistribution").innerHTML=categories.map(item=>`<article class="role-stat"><span>${esc(item.name)}</span><strong>${esc(item.universe)}</strong><small>National benchmark · ${esc(item.source)}</small><div><b>${item.mapped}</b> mapped dossiers <a href="${esc(item.url)}" target="_blank" rel="noopener">Source ↗</a></div></article>`).join("");
   $("#socialActivityStats").innerHTML=[["Socially resolved profiles",socialProfiles.length],["X profiles",allFootprints.filter(item=>item.publisher==="X").length],["YouTube profiles",people.filter(person=>person.footprints.some(item=>item.type==="VIDEO")).length],["Instagram profiles",0],["Verified recent works",discoveredWorks],["Verified author citations",discoveredCitations.toLocaleString("en-IN")],["News records",allFootprints.filter(item=>item.type==="NEWS").length],["Promotional records",allFootprints.filter(item=>item.type==="PROMOTION").length]].map(([label,value])=>`<div class="social-stat"><span>${label}</span><strong>${value}</strong></div>`).join("");
+  $("#dolClassifications").innerHTML=dolClasses.map((item,index)=>`<article class="dol-class dol-${index+1}"><span>${item.name}</span><strong>${item.count}</strong><p>${item.detail}</p></article>`).join("");
   $("#regionDistribution").innerHTML=bars(regions,regions[0]?.[1]||1);
   $("#cityDistribution").innerHTML=bars(cities,cities[0]?.[1]||1);
   $("#specialtyDistribution").innerHTML=bars(specialties,specialties[0]?.[1]||1);
   $("#tierDistribution").innerHTML=["National KOL","Regional KOL","Scientific Leader","Rising Voice"].map(tier=>{const value=tiers.find(item=>item[0]===tier)?.[1]||0;return`<div class="tier-card"><i></i><span>${tier}</span><strong>${value}</strong></div>`}).join("");
-  const candidates=app.candidates?.profiles||[];
+  const candidates=cohort;
   $("#candidateCount").textContent=`${candidates.length} candidates`;
-  $("#candidateDirectory").innerHTML=candidates.map(item=>`<details class="candidate-person"><summary><strong>${esc(item.name)}</strong><span>${esc(item.institutions.join(" · ")||"Institution unresolved")}</span><b>${item.sampleWorks.length} source works</b></summary><div><p>${esc(item.topics.join(" · "))}</p>${item.sampleWorks.map(work=>`<a href="${esc(work.url)}" target="_blank" rel="noopener">${esc(work.title)} <small>${esc(work.date||"")}</small></a>`).join("")}</div></details>`).join("");
+  $("#candidateDirectory").innerHTML=candidates.map(item=>`<details class="candidate-person"><summary><strong>${esc(item.name)}</strong><span>${esc(item.institutions.join(" · ")||"Institution unresolved")}</span><i class="dol-badge">${esc(item.signalClass)}</i><b>${item.sampleWorks.length} source works</b></summary><div><p>${esc(item.topics.join(" · "))}</p>${item.sampleWorks.map(work=>`<a href="${esc(work.url)}" target="_blank" rel="noopener">${esc(work.title)} <small>${esc(work.date||"")}</small></a>`).join("")}</div></details>`).join("");
   renderCoverageDirectory();
 }
 
