@@ -4,19 +4,23 @@ function renderCoverage(){
   const categoryFor=person=>person.id==="kol-v-mohan"||person.id==="kol-banshi-saboo"?"Diabetologist":person.specialty.toLowerCase().includes("internal medicine")?"Consulting Physician":person.specialty.toLowerCase().includes("general practice")?"General Physician":"Endocrinologist";
   const sources=people.reduce((sum,item)=>sum+item.footprints.length,0);
   const regions=countBy("region"),cities=countBy("city"),tiers=countBy("tier"),specialties=countBy("specialty");
-  const categories=["Diabetologist","Endocrinologist","Consulting Physician","General Physician"].map(name=>[name,people.filter(person=>categoryFor(person)===name).length]);
+  const categories=[
+    {name:"Diabetes care",universe:"12,000+",mapped:people.filter(person=>categoryFor(person)==="Diabetologist").length,source:"RSSDI membership",url:"https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2074561&lang=2&reg=48"},
+    {name:"Endocrinologists",universe:"2,000+",mapped:people.filter(person=>categoryFor(person)==="Endocrinologist").length,source:"ESI membership",url:"https://pmc.ncbi.nlm.nih.gov/articles/PMC10870988/"},
+    {name:"Consulting physicians",universe:"22,000",mapped:people.filter(person=>categoryFor(person)==="Consulting Physician").length,source:"API membership",url:"https://www.apiindia.org/about/api"},
+    {name:"General practitioners",universe:"50,000+",mapped:people.filter(person=>categoryFor(person)==="General Physician").length,source:"IMA documented members",url:"https://www.ima-india.org/ima/pdfdata/01-March-2021-IMA-News.pdf"}
+  ];
   const opinionLeaders=people.filter(person=>["National KOL","Regional KOL"].includes(person.tier));
   const socialProfiles=people.filter(person=>person.footprints.some(item=>item.type==="SOCIAL"));
   const socialRecords=people.flatMap(person=>person.footprints).filter(item=>item.type==="SOCIAL");
-  $("#coverageMetrics").innerHTML=[["Mapped people",people.length,"Identity-resolved public dossiers"],["Opinion leaders",opinionLeaders.length,"National and regional KOL tiers"],["Socially evidenced",socialProfiles.length,"Profiles with matched public activity"],["Social records",socialRecords.length,"Linked and reviewable sources"]].map(item=>`<div class="coverage-metric"><span>${item[0]}</span><strong>${item[1]}</strong><small>${item[2]}</small></div>`).join("");
+  $("#coverageMetrics").innerHTML=[["Mapped people",people.length,"Identity-resolved public dossiers"],["Mapped opinion leaders",opinionLeaders.length,"National and regional KOL tiers"],["Socially evidenced",socialProfiles.length,"Profiles with matched public activity"],["Social records",socialRecords.length,"Linked and reviewable sources"]].map(item=>`<div class="coverage-metric"><span>${item[0]}</span><strong>${item[1]}</strong><small>${item[2]}</small></div>`).join("");
   const bars=(items,max)=>items.map(([name,value])=>`<div class="distribution-row"><span>${esc(name)}</span><div class="distribution-track"><i style="width:${value/max*100}%"></i></div><strong>${value}</strong></div>`).join("");
-  $("#roleDistribution").innerHTML=categories.map(([name,value])=>`<button class="role-stat" data-role-filter="${esc(name)}"><span>${esc(name)}</span><strong>${value}</strong><small>${value?"Mapped dossiers":"Coverage gap"}</small></button>`).join("");
+  $("#roleDistribution").innerHTML=categories.map(item=>`<article class="role-stat"><span>${esc(item.name)}</span><strong>${esc(item.universe)}</strong><small>National benchmark · ${esc(item.source)}</small><div><b>${item.mapped}</b> mapped dossiers <a href="${esc(item.url)}" target="_blank" rel="noopener">Source ↗</a></div></article>`).join("");
   $("#socialActivityStats").innerHTML=[["Profiles with social evidence",socialProfiles.length],["Verified social records",socialRecords.filter(item=>item.confidence==="VERIFIED").length],["Measured posts","Not connected"],["Engagement metrics","Not connected"]].map(([label,value])=>`<div class="social-stat"><span>${label}</span><strong>${value}</strong></div>`).join("");
   $("#regionDistribution").innerHTML=bars(regions,regions[0]?.[1]||1);
   $("#cityDistribution").innerHTML=bars(cities,cities[0]?.[1]||1);
   $("#specialtyDistribution").innerHTML=bars(specialties,specialties[0]?.[1]||1);
   $("#tierDistribution").innerHTML=["National KOL","Regional KOL","Scientific Leader","Rising Voice"].map(tier=>{const value=tiers.find(item=>item[0]===tier)?.[1]||0;return`<div class="tier-card"><i></i><span>${tier}</span><strong>${value}</strong></div>`}).join("");
-  $$('[data-role-filter]').forEach(button=>button.onclick=()=>{$("#coverageSearch").value=button.dataset.roleFilter;renderCoverageDirectory()});
   renderCoverageDirectory();
 }
 
