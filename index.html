@@ -10,11 +10,12 @@
     <div class="brand"><span class="brand-mark">F</span><div><strong>FolksandFocus</strong><small>Metabolic intelligence</small></div></div>
     <nav aria-label="Primary navigation">
       <button class="nav-item active" data-view="overview"><span>01</span>Overview</button>
-      <button class="nav-item" data-view="experts"><span>02</span>Expert graph</button>
-      <button class="nav-item" data-view="research"><span>03</span>Research monitor</button>
-      <button class="nav-item" data-view="evidence"><span>04</span>Evidence review</button>
-      <button class="nav-item" data-view="safety"><span>05</span>Safety desk <b id="navCaseCount">0</b></button>
-      <button class="nav-item" data-view="governance"><span>06</span>Governance</button>
+      <button class="nav-item" data-view="coverage"><span>02</span>Coverage</button>
+      <button class="nav-item" data-view="experts"><span>03</span>Expert graph</button>
+      <button class="nav-item" data-view="research"><span>04</span>Research monitor</button>
+      <button class="nav-item" data-view="evidence"><span>05</span>Evidence review</button>
+      <button class="nav-item" data-view="safety"><span>06</span>Safety desk <b id="navCaseCount">0</b></button>
+      <button class="nav-item" data-view="governance"><span>07</span>Governance</button>
     </nav>
     <div class="sidebar-foot"><div class="system-state"><i></i><div><strong>Pipeline healthy</strong><small id="pipelineStamp">Checking latest run</small></div></div><div class="user"><span>LY</span><div><strong>India Medical Affairs</strong><small>Reviewer workspace</small></div></div></div>
   </aside>
@@ -42,10 +43,20 @@
         <section class="panel source-panel"><div class="panel-head"><div><p class="kicker">Ingestion health</p><h2>Source coverage</h2></div></div><div id="sourceHealth" class="source-health"></div></section>
       </div>
     </section>
+    <section id="coverage" class="view">
+      <div class="section-intro"><div><p class="kicker">Mapped universe · identity resolved</p><h2>HCP and KOL coverage</h2><p>Coverage reflects people supported by current public-source dossiers, not the total number of specialists practising in India.</p></div><div class="coverage-stamp"><span>Coverage standard</span><strong>Institution + independent source</strong></div></div>
+      <div id="coverageMetrics" class="coverage-metrics"></div>
+      <div class="coverage-dashboard">
+        <section class="panel coverage-map"><div class="panel-head"><div><p class="kicker">Geographic distribution</p><h2>Mapped experts by city</h2></div><span class="count-label">Identity-resolved people</span></div><div id="cityDistribution" class="distribution-list"></div></section>
+        <section class="panel coverage-tier"><div class="panel-head"><div><p class="kicker">Influence profile</p><h2>Coverage by analyst tier</h2></div></div><div id="tierDistribution" class="tier-grid"></div></section>
+        <section class="panel coverage-specialty"><div class="panel-head"><div><p class="kicker">Clinical breadth</p><h2>Specialty distribution</h2></div></div><div id="specialtyDistribution" class="distribution-list"></div></section>
+        <section class="panel coverage-directory"><div class="panel-head"><div><p class="kicker">Inspect the denominator</p><h2>Expandable HCP and KOL directory</h2></div><label class="directory-search"><span>Filter</span><input id="coverageSearch" type="search" placeholder="Name, city, institute or tier"></label></div><div id="coverageDirectory" class="coverage-list"></div></section>
+      </div>
+    </section>
     <section id="experts" class="view"><div class="toolbar"><label class="search-field"><span>Search</span><input id="expertSearch" type="search" placeholder="Name, institution, focus"></label><label><span>Specialty</span><select id="specialtyFilter"><option value="ALL">All specialties</option></select></label><label><span>Verification</span><select id="verificationFilter"><option value="ALL">All states</option><option value="VERIFIED">Verified</option><option value="REVIEW">Needs review</option></select></label></div><div class="expert-layout"><section class="panel table-panel"><div class="panel-head"><div><p class="kicker">Governed ranking</p><h2>Expert index</h2></div><span id="expertCount" class="count-label"></span></div><div class="table-scroll"><table><thead><tr><th>Expert</th><th>Clinical domain</th><th>Influence</th><th>Confidence</th><th>Movement</th></tr></thead><tbody id="expertTable"></tbody></table></div></section><aside class="panel profile-drawer" id="profileDrawer"></aside></div></section>
     <section id="research" class="view"><div class="section-intro"><div><p class="kicker">Open-source KOL research</p><h2>Research monitor</h2><p>Trace who is publishing, speaking and being associated with obesity and metabolic medicine across verifiable public sources.</p></div><div class="segmented"><button class="active" data-research-filter="ALL">All sources</button><button data-research-filter="INSTITUTION">Institutes</button><button data-research-filter="PUBLICATION">Publications</button><button data-research-filter="CONFERENCE">Conferences</button><button data-research-filter="SOCIAL">Social</button></div></div><div class="research-layout"><section class="panel research-roster"><div class="panel-head"><div><p class="kicker">Identity-resolved set</p><h2>Verified public footprints</h2></div><span id="researchCount" class="count-label"></span></div><div id="researchRoster"></div></section><section class="research-feed" id="researchFeed"></section></div></section>
     <section id="evidence" class="view"><div class="section-intro"><div><p class="kicker">Claim-level provenance</p><h2>Evidence review queue</h2><p>Every claim remains attached to its source, extraction method and reviewer disposition.</p></div><div class="segmented"><button class="active" data-evidence-filter="ALL">All</button><button data-evidence-filter="REVIEW">Needs review</button><button data-evidence-filter="ACCEPTED">Accepted</button></div></div><div id="evidenceList" class="evidence-list"></div></section>
     <section id="safety" class="view"><div class="section-intro"><div><p class="kicker">Human-in-the-loop pharmacovigilance</p><h2>Safety review desk</h2><p>Potential cases are screened for the four minimum criteria. The model never submits a report.</p></div><div class="sla-key"><span><i class="critical"></i>&lt; 8h</span><span><i class="watch"></i>8–24h</span></div></div><div class="safety-layout"><div id="caseBoard" class="case-board"></div><aside class="panel case-detail" id="caseDetail"></aside></div></section>
     <section id="governance" class="view"><div class="governance-grid"><section class="panel span-7"><div class="panel-head"><div><p class="kicker">Model card</p><h2>Influence score v2.3</h2></div><span class="version-badge">Approved</span></div><div id="modelCard" class="model-card"></div></section><section class="panel span-5"><div class="panel-head"><div><p class="kicker">Data controls</p><h2>Operating guardrails</h2></div></div><div id="guardrails" class="guardrail-list"></div></section><section class="panel span-12"><div class="panel-head"><div><p class="kicker">Traceability</p><h2>Recent audit events</h2></div></div><div id="auditLog" class="audit-log"></div></section></div></section>
   </main>
-</div><script src="./app.js"></script></body></html>
+</div><script src="./app.js"></script><script src="./coverage.js"></script></body></html>
