@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
+    "discover": "node scripts/discover-openalex.mjs",
     "test": "node --test domain.test.mjs",
     "check": "node --check app.js && node --check coverage.js && node --check server.mjs && node --check 'functions/api/[[path]].js' && node --test domain.test.mjs"
   }

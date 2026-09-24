@@ -1,4 +1,5 @@
 import { audits, evidence, hcps, researchProfiles, safetyCases } from "../../data.mjs";
+import { openAlexDiscovery } from "../../generated/openalex-discovery.mjs";
 import { caseCompleteness, transitionCase } from "../../domain.mjs";
 
 const cases=safetyCases.map(item=>({...item}));
@@ -17,6 +18,7 @@ export async function onRequest({request,params}){
   if(request.method==="GET"&&path==="overview")return response(overview());
   if(request.method==="GET"&&path==="hcps")return response({items:scored(),modelVersion:"2.3"});
   if(request.method==="GET"&&path==="research")return response({items:researchProfiles,method:"Public-source records are identity-resolved before inclusion; poster and abstract records retain a review state when event-level confirmation is incomplete.",researchedAt:"2026-09-24"});
+  if(request.method==="GET"&&path==="discovery")return response(openAlexDiscovery);
   if(request.method==="GET"&&path==="evidence")return response({items:evidence});
   if(request.method==="GET"&&path==="safety-cases")return response({items:cases.map(item=>({...item,completeness:caseCompleteness(item)}))});
   if(request.method==="GET"&&path==="governance")return response({weights:{},guardrails:[{title:"Source-backed records only",detail:"People and activities require a resolvable public source before display."},{title:"No inferred influence",detail:"Source volume and identity confidence are never presented as clinical influence."},{title:"Review state is explicit",detail:"Unconfirmed poster, abstract and publication records remain marked for review."},{title:"No synthetic safety data",detail:"The safety desk remains empty until an authorised case source is connected."}],audits:auditLog.slice(0,20)});
