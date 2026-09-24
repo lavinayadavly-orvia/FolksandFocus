@@ -9,20 +9,19 @@
   <aside class="sidebar">
     <div class="brand"><span class="brand-mark">F</span><div><strong>FolksandFocus</strong><small>Metabolic intelligence</small></div></div>
     <nav aria-label="Primary navigation">
-      <button class="nav-item active" data-view="overview"><span>01</span>Overview</button>
-      <button class="nav-item" data-view="coverage"><span>02</span>Coverage</button>
-      <button class="nav-item" data-view="experts"><span>03</span>Expert graph</button>
-      <button class="nav-item" data-view="research"><span>04</span>Research monitor</button>
-      <button class="nav-item" data-view="evidence"><span>05</span>Evidence review</button>
-      <button class="nav-item" data-view="safety"><span>06</span>Safety desk <b id="navCaseCount">0</b></button>
-      <button class="nav-item" data-view="governance"><span>07</span>Governance</button>
+      <button class="nav-item active" data-view="coverage"><span>01</span>Coverage</button>
+      <button class="nav-item" data-view="experts"><span>02</span>Expert graph</button>
+      <button class="nav-item" data-view="research"><span>03</span>Research monitor</button>
+      <button class="nav-item" data-view="evidence"><span>04</span>Evidence review</button>
+      <button class="nav-item" data-view="safety"><span>05</span>Safety desk <b id="navCaseCount">0</b></button>
+      <button class="nav-item" data-view="governance"><span>06</span>Governance</button>
     </nav>
     <div class="sidebar-foot"><div class="system-state"><i></i><div><strong>Public-source index</strong><small id="pipelineStamp">Checking latest refresh</small></div></div><div class="user"><span>LY</span><div><strong>India Medical Affairs</strong><small>Reviewer workspace</small></div></div></div>
   </aside>
   <main>
-    <header class="topbar"><div><p class="kicker" id="viewKicker">India / Obesity / Source index</p><h1 id="viewTitle">Expert intelligence overview</h1></div><div class="header-actions"><button class="quiet-button" id="refreshButton">Refresh index</button><button class="primary-button" id="exportButton">Export records</button></div></header>
+    <header class="topbar"><div><p class="kicker" id="viewKicker">India / Pan-India expert universe</p><h1 id="viewTitle">Coverage dashboard</h1></div><div class="header-actions"><button class="quiet-button" id="refreshButton">Refresh index</button><button class="primary-button" id="exportButton">Export records</button></div></header>
     <div id="statusBanner" class="status-banner" role="status" hidden></div>
-    <section id="overview" class="view active-view">
+    <section id="overview" class="view">
       <div class="command-toolbar">
         <div class="scope-control"><span>Market</span><strong>India</strong></div>
         <label><span>Therapy area</span><select id="therapyScope" onchange="notify('Therapy-area scope updated to ' + this.value + '.')"><option>Obesity & metabolic health</option><option>Type 2 diabetes</option><option>Cardiometabolic risk</option></select></label>
@@ -43,7 +42,7 @@
         <section class="panel source-panel"><div class="panel-head"><div><p class="kicker">Ingestion health</p><h2>Source coverage</h2></div></div><div id="sourceHealth" class="source-health"></div></section>
       </div>
     </section>
-    <section id="coverage" class="view">
+    <section id="coverage" class="view active-view">
       <div class="section-intro"><div><p class="kicker">Pan-India mapped universe · identity resolved</p><h2>Pan-India HCP and KOL coverage</h2><p>National scope spans five regions. Counts reflect current source-backed dossiers, not the total number of specialists practising in India.</p></div><div class="coverage-stamp"><span>Coverage standard</span><strong>Institution + independent source</strong></div></div>
       <div id="coverageMetrics" class="coverage-metrics"></div>
       <div class="coverage-dashboard">
