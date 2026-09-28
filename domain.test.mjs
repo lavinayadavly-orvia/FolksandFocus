@@ -1,7 +1,43 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { buildSocialMonitor } from "./social-monitor.mjs";
+import { buildHcpAuditCard } from "./audit-card.mjs";
 import { calculateInfluenceScore, caseCompleteness, transitionCase } from "./domain.mjs";
+import { socialAccounts, socialPosts, researchProfiles } from './data.mjs';
+import { sourceLibrary } from './source-library.mjs';
 
+test('LinkedIn profiles are linked without turning mentions into authored posts',()=>{
+  const monitor=buildSocialMonitor(socialAccounts,socialPosts,researchProfiles);
+  const linkedin=monitor.platformSummary.find(p=>p.platform==='LinkedIn');
+  assert.equal(linkedin.accounts,3);
+  assert.equal(linkedin.posts,0);
+  assert.equal(linkedin.lastCheckedAt,null);
+  assert.equal(linkedin.status,'CONNECTOR_REQUIRED');
+  assert.ok(monitor.accounts.filter(a=>a.platform==='LinkedIn').every(a=>a.sourceRecordId&&a.profileUrl.includes('/in/')));
+  const sources=sourceLibrary.filter(s=>s.platform==='LinkedIn');
+  assert.ok(sources.some(s=>s.relationship==='Authored'));
+  assert.ok(sources.some(s=>s.relationship==='Institutional mention'));
+});
+
+test("social monitor keeps accounts separate from captured posts",()=>{
+  const result=buildSocialMonitor(
+    [{id:"a1",hcpId:"h1",platform:"X",handle:"@doctor",lastCheckedAt:"2026-09-24T12:00:00.000Z",collectionStatus:"CONNECTOR_REQUIRED"}],
+    [],
+    [{id:"h1",name:"Dr Test"}]
+  );
+  assert.equal(result.accounts[0].hcp,"Dr Test");
+  assert.equal(result.accounts[0].postCount,0);
+  assert.equal(result.platformSummary.find(item=>item.platform==="X").status,"CONNECTOR_REQUIRED");
+  assert.equal(result.posts.length,0);
+});
+
+test("audit card exposes quality gates without inventing an authority score",()=>{
+  const card=buildHcpAuditCard({id:"h1",name:"Dr Test",aliases:["Test"],specialty:"Endocrinology",affiliation:"Hospital",city:"Delhi",state:"Delhi",matchConfidence:98,tier:"Rising Voice",footprints:[{type:"INSTITUTION",confidence:"VERIFIED"},{type:"PUBLICATION",confidence:"REVIEW"}]});
+  assert.equal(card.evidence.verified,1);
+  assert.equal(card.evidence.review,1);
+  assert.equal(card.qualityGates.find(item=>item.name==="All records reviewed").passed,false);
+  assert.equal("score" in card.classification,false);
+});
 const hcp = { id:"hcp-test", verification:"VERIFIED", peerAuthority:80, clinicalRelevance:90, networkReach:70, recency:100 };
 const accepted = { hcpId:"hcp-test", disposition:"ACCEPTED", quality:90 };
 const review = { hcpId:"hcp-test", disposition:"REVIEW", quality:100 };

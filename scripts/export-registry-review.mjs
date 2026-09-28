@@ -1,0 +1,12 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import { assessRegistryCandidate } from '../backend/registry-resolution.mjs';
+const path=new URL('../generated/nmc-registry-review.json',import.meta.url);
+const snapshot=JSON.parse(await readFile(path,'utf8'));
+const now=new Date(snapshot.retrieved_at);
+for(const group of snapshot.results)for(const record of group.records)record.assessment=assessRegistryCandidate({name:group.target},record,now);
+await writeFile(path,JSON.stringify(snapshot,null,2)+'\n');
+const cell=value=>`"${String(value??'').replaceAll('"','""')}"`;
+const headers=['name','council','registration_number','council_registration_date','primary_qualification','primary_qualification_year','additional_qualifications','review_status','source_url'];
+const rows=snapshot.qualification_candidates.map(r=>[r.name,r.state_medical_council,r.registration_no,r.registration_date,r.qualification,r.qualification_year,r.additional_qualifications.map(q=>`${q.qualification} (${q.year})`).join('; '),'REVIEW - not a verified HCP or first-registration match',r.source_url]);
+await writeFile(new URL('../generated/nmc-qualification-candidates.csv',import.meta.url),[headers,...rows].map(row=>row.map(cell).join(',')).join('\n')+'\n');
+console.log(JSON.stringify({targets:snapshot.results.length,targetsWithCandidates:snapshot.results.filter(r=>r.records.length).length,qualificationCandidateRecords:rows.length,incompleteSearches:snapshot.results.filter(r=>r.status!=='SEARCHED').map(r=>r.target)}));

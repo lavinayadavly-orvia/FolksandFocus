@@ -1,7 +1,12 @@
-import { audits, evidence, hcps, researchProfiles, safetyCases } from "../../data.mjs";
+import { audits, evidence, hcps, researchProfiles, safetyCases, socialAccounts, socialPosts } from "../../data.mjs";
 import { openAlexDiscovery } from "../../generated/openalex-discovery.mjs";
 import { cohortDiscovery } from "../../generated/cohort-discovery.mjs";
 import { caseCompleteness, transitionCase } from "../../domain.mjs";
+import { buildSocialMonitor } from "../../social-monitor.mjs";
+import { buildHcpAuditCard } from "../../audit-card.mjs";
+import { d1Adapter } from "../../backend/database.mjs";
+import { IntelligenceStore } from "../../backend/store.mjs";
+import { intelligenceApi } from "../../backend/api.mjs";
 
 const cases=safetyCases.map(item=>({...item}));
 const auditLog=audits.map(item=>({...item}));
@@ -14,13 +19,20 @@ function overview(){
   return {generatedAt:new Date().toISOString(),headline:"The current workspace contains a source-backed Pan-India expert map.",summary:"Every visible person is linked to named public sources. Topic trends, claim-level evidence, social listening and safety cases remain empty until a real ingestion pipeline supplies reviewable records.",confidence:Math.round(researchProfiles.reduce((sum,item)=>sum+item.matchConfidence,0)/researchProfiles.length),confidenceNote:"Confidence represents identity matching, not clinical influence",tags:["Five regions","Public provenance","No synthetic records"],metrics:[{label:"Mapped experts",value:researchProfiles.length,detail:"Named public-source dossiers"},{label:"Verified sources",value:verified.length,detail:`${sources.length-verified.length} record requires review`},{label:"Regions",value:new Set(researchProfiles.map(item=>item.region)).size,detail:"North, South, East, West, Central"},{label:"Cities",value:new Set(researchProfiles.map(item=>item.city)).size,detail:"Current evidence-backed footprint"}],leaders:leaders.slice(0,4),attention:[{severity:"info",title:"No live listening connector configured",detail:"Trend and narrative panels stay empty until ingestion is connected.",time:"Open"},{severity:"watch",title:"One source record requires confirmation",detail:"It is excluded from verified-source totals.",time:"1"}],themes:[],themeLabels:[],sources:[{name:"Institutional profiles",coverage:byType("INSTITUTION"),state:"Source records"},{name:"Publications",coverage:byType("PUBLICATION"),state:"Source records"},{name:"Conference programmes",coverage:byType("CONFERENCE"),state:"Source records"},{name:"Professional social",coverage:byType("SOCIAL"),state:"Source records"}]};
 }
 
-export async function onRequest({request,params}){
+export async function onRequest({request,params,env={}}){
   const path=Array.isArray(params.path)?params.path.join("/"):params.path||"";
+  if(path.startsWith("intelligence/")){
+    const store=env.INTELLIGENCE_DB?new IntelligenceStore(d1Adapter(env.INTELLIGENCE_DB)):null;
+    return intelligenceApi(request,{store,env});
+  }
   if(request.method==="GET"&&path==="overview")return response(overview());
   if(request.method==="GET"&&path==="hcps")return response({items:scored(),modelVersion:"2.3"});
   if(request.method==="GET"&&path==="research")return response({items:researchProfiles,method:"Public-source records are identity-resolved before inclusion; poster and abstract records retain a review state when event-level confirmation is incomplete.",researchedAt:"2026-09-24"});
   if(request.method==="GET"&&path==="discovery")return response(openAlexDiscovery);
   if(request.method==="GET"&&path==="candidates")return response(cohortDiscovery);
+  if(request.method==="GET"&&path==="social-monitor")return response(buildSocialMonitor(socialAccounts,socialPosts,researchProfiles));
+  const auditCard=path.match(/^hcps\/([^/]+)\/audit-card$/);
+  if(request.method==="GET"&&auditCard){const person=researchProfiles.find(item=>item.id===auditCard[1]);return person?response(buildHcpAuditCard(person,socialAccounts,socialPosts)):response({error:"HCP not found"},404)}
   if(request.method==="GET"&&path==="evidence")return response({items:evidence});
   if(request.method==="GET"&&path==="safety-cases")return response({items:cases.map(item=>({...item,completeness:caseCompleteness(item)}))});
   if(request.method==="GET"&&path==="governance")return response({weights:{},guardrails:[{title:"Source-backed records only",detail:"People and activities require a resolvable public source before display."},{title:"No inferred influence",detail:"Source volume and identity confidence are never presented as clinical influence."},{title:"Review state is explicit",detail:"Unconfirmed poster, abstract and publication records remain marked for review."},{title:"No synthetic safety data",detail:"The safety desk remains empty until an authorised case source is connected."}],audits:auditLog.slice(0,20)});
