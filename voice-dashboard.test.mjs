@@ -1,4 +1,15 @@
 import test from 'node:test';
+import {execFileSync} from 'node:child_process';
+test('cohort snapshot retains qualification estimates with a Workers epoch initialization clock',()=>{
+ const output=execFileSync(process.execPath,['--input-type=module','-e',`
+  const RealDate=Date;
+  globalThis.Date=class extends RealDate {constructor(...args){super(...(args.length?args:[0]));} static now(){return 0;}};
+  const {researchProfiles}=await import('./data.mjs');
+  const {buildPersonas,visibleProfileCohort}=await import('./persona-model.mjs');
+  console.log(visibleProfileCohort(buildPersonas(researchProfiles)).length);
+ `],{cwd:new URL('.',import.meta.url),encoding:'utf8'});
+ assert.equal(Number(output.trim()),1060);
+});
 import {researchProfiles} from './data.mjs';
 import {individualLocationReviews} from './location-reviews.mjs';
 test('reviewed cohort geography is complete and counts reconcile without duplicated doctors',()=>{

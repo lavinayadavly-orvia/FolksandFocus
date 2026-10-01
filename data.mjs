@@ -1,5 +1,6 @@
 import { attachDiscoveredFootprints } from './source-library.mjs';
 import {applyReviewedGeography} from './geography.mjs';
+import {researchPhase} from './research-phase.mjs';
 import { confirmedCohort as capturedCohort } from './generated/confirmed-cohort.mjs';
 import {applyCohortIdentityReviews, projectCollectionToCohort} from './cohort-review.mjs';
 import { integrateCohort, researchMetadata } from './cohort-integration.mjs';
@@ -104,7 +105,8 @@ export const legacyProfiles=[
 ];
 attachDiscoveredFootprints(legacyProfiles);
 const integrated = integrateCohort(legacyProfiles, confirmedCohort);
-export const researchProfiles = attachQualificationExperience(attachReportedExperience(enrichArticleProfiles(enrichDiscoveryProfiles(enrichPublicationProfiles(enrichSourceProfiles(integrated.profiles),cohortPublications),profileSourceDiscovery),articleDiscovery),reportedExperience,experienceExclusions),confirmedCohort.doctors,new Date(),[...reviewedQualificationEvidence,...collectedQualificationEvidence]).map(applyReviewedGeography);
+// Snapshot estimates must not depend on the Workers module-initialization clock.
+export const researchProfiles = attachQualificationExperience(attachReportedExperience(enrichArticleProfiles(enrichDiscoveryProfiles(enrichPublicationProfiles(enrichSourceProfiles(integrated.profiles),cohortPublications),profileSourceDiscovery),articleDiscovery),reportedExperience,experienceExclusions),confirmedCohort.doctors,new Date(`${researchPhase.decidedAt}T00:00:00Z`),[...reviewedQualificationEvidence,...collectedQualificationEvidence]).map(applyReviewedGeography);
 export const researchInfo = researchMetadata(confirmedCohort, integrated.review);
 researchInfo.identityReview = confirmedCohort.identityReview;
 researchInfo.additionalSources=[...refreshedSources,...cohortPublications.publications.map(p=>({source_id:p.id,url:p.url,sourceUrl:p.sourceUrl,checkedAt:p.checkedAt,publisher:'NCBI PubMed'}))];

@@ -216,6 +216,6 @@ loadPersonas();
 window.addEventListener('hashchange',route);
 document.querySelectorAll('.nav-item,[data-jump]').forEach(button=>button.addEventListener('click',()=>{
   if(button.dataset.view==='persona'||button.dataset.jump==='persona')navigate();
-  else if(button.dataset.view==='analytics'){if(location.hash==='#analytics')route();else location.hash='#analytics';}
+  else if(button.dataset.view==='analytics'){if(location.hash==='#analytics/geography')route();else location.hash='#analytics/geography';}
   else if(location.hash.startsWith('#voices'))history.replaceState(null,'',location.pathname+location.search);
 }));
