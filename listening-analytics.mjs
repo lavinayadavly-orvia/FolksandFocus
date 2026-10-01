@@ -1,9 +1,21 @@
+import {statementSourceKey} from './statement-quality.mjs';
 const NON_INDIVIDUAL = new Set([
   'Asian Indian nutrition consensus', 'Endocrinologist (unnamed)',
   'Max Healthcare endocrinology team', "Dr. Mohan's Diabetes Specialities Centre",
   'National cardiology expert panel', 'RSSDI 2025 obesity track', 'ESI obesity guideline panel', 'Amita Gadre'
 ]);
+export function publicationInWindow(record,window,all=false){
+  if(all)return true;
+  if(!record.date)return window.includeUndated===true;
+  if(/^\d{4}-\d{2}-\d{2}$/.test(record.date||''))return record.date>=window.start&&record.date<=window.end;
+  if(/^\d{4}-\d{2}$/.test(record.date||'')){
+    const start=record.date+'-01',end=new Date(Date.UTC(Number(record.date.slice(0,4)),Number(record.date.slice(5)),0)).toISOString().slice(0,10);
+    return start>=window.start&&end<=window.end;
+  }
+  return false;
+}
 export function doctorNames(row) {
+  if(Array.isArray(row.cohortDoctorNames))return row.cohortDoctorNames;
   if (NON_INDIVIDUAL.has(row.who)) return [];
   if (row.who === 'Dr Amit Bhargava & Dr Varsha Narayanan') return ['Dr Amit Bhargava', 'Dr Varsha Narayanan'];
   return /^(Dr\b|Lt Gen \(Dr\))/.test(row.who) ? [row.who] : [];
@@ -14,13 +26,13 @@ export function listeningWindow(now = new Date(), months = 12) {
   return { start, end, months: Array.from({ length: months }, (_, i) => new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() - months + i + 1, 1)).toISOString().slice(0, 7)) };
 }
 export function activitySummary(rows, links, window) {
-  const included = rows.filter(r => r.date >= window.start && r.date <= window.end && links[r.source]?.url);
+  const included = rows.filter(r => publicationInWindow(r,window) && statementSourceKey(links[r.source]?.url));
   const events = new Map();
   for (const row of included) {
-    const url = new URL(links[row.source].url); url.hash = '';
+    const url = statementSourceKey(links[row.source].url);
     // One attributed voice on one source page, not each coded quotation.
-    const key = `${url.href}|${row.who}`;
-    if (!events.has(key)) events.set(key, { id: key, date: row.date, who: row.who, doctors: doctorNames(row), channel: row.channel, url: url.href, statementIds: [] });
+    const key = `${url}|${row.who}`;
+    if (!events.has(key)) events.set(key, { id: key, date: row.date, who: row.who, doctors: doctorNames(row), channel: row.channel, url, statementIds: [] });
     events.get(key).statementIds.push(row.id);
   }
   const activities = [...events.values()];
@@ -28,13 +40,26 @@ export function activitySummary(rows, links, window) {
   return { activities, statements: included.length, doctors: doctors.size,
     otherVoices: new Set(activities.filter(a => !a.doctors.length).map(a => a.who)).size,
     sources: new Set(activities.map(a => a.url)).size,
-    months: window.months.map(month => { const set = activities.filter(a => a.date.startsWith(month)); return { month, activities: set.length, doctors: new Set(set.flatMap(a => a.doctors)).size, channels: Object.fromEntries([...new Set(set.map(a => a.channel))].map(c => [c, set.filter(a => a.channel === c).length])) }; }) };
+    months: window.months.map(month => { const set = activities.filter(a => a.date?.startsWith(month)); return { month, activities: set.length, doctors: new Set(set.flatMap(a => a.doctors)).size, channels: Object.fromEntries([...new Set(set.map(a => a.channel))].map(c => [c, set.filter(a => a.channel === c).length])) }; }) };
+}
+
+export function collectionCoverage(cohort){
+  if(!cohort||!Array.isArray(cohort.doctors)||cohort.doctors.length!==cohort.cohortTotal||new Set(cohort.doctors.map(d=>d.id)).size!==cohort.cohortTotal)return null;
+  const people=cohort.doctors,total=cohort.cohortTotal;
+  const checks=[
+    {id:'publications',label:'Publication Searches',checked:people.filter(d=>d.publicationSearch?.status==='COMPLETE').length,checkedAt:cohort.publicationCollection?.checkedAt||null},
+    {id:'socialLinks',label:'Hospital Social-Link Checks',checked:people.filter(d=>d.sourcePageChecked===true).length,checkedAt:cohort.sourceDiscovery?.checkedAt||null},
+    {id:'articles',label:'Hospital Article Checks',checked:people.filter(d=>d.articleDiscoveryStatus==='PROFILE_CHECKED').length,checkedAt:cohort.articleDiscovery?.checkedAt||null}
+  ].map(row=>({...row,total,notEstablished:total-row.checked}));
+  return {total,checks,linkedAccountDoctors:people.filter(d=>d.accounts?.length).length,nativePosts:(cohort.posts||[]).length,
+    doctorsWithReviewLinks:people.filter(d=>d.discoveredSourceCount>0).length,
+    reviewLinks:people.reduce((n,d)=>n+(d.discoveredSourceCount||0),0)};
 }
 
 export function conversationSignals(rows, links, window) {
   const topics = [...new Set(rows.flatMap(r => r.themes))];
   return topics.map(topic => {
-    const statements = rows.filter(r => r.themes.includes(topic) && r.date >= window.start && r.date <= window.end && links[r.source]?.url);
+    const statements = rows.filter(r => r.themes.includes(topic) && publicationInWindow(r,window) && statementSourceKey(links[r.source]?.url));
     const summary = activitySummary(statements, links, window);
     const positive = statements.filter(r => r.sentiment === 'Positive');
     const negative = statements.filter(r => r.sentiment === 'Negative');
@@ -42,15 +67,15 @@ export function conversationSignals(rows, links, window) {
     return { topic, doctors: summary.doctors, activities: summary.activities.length,
       positive: positive.length, negative: negative.length, mixed: statements.length-positive.length-negative.length,
       contrastingSignals: positive.length > 0 && negative.length > 0 && opposingDoctors.size >= 2,
-      latest: [...statements].sort((a,b)=>b.date.localeCompare(a.date))[0] || null };
+      latest: [...statements].sort((a,b)=>(b.date||'').localeCompare(a.date||''))[0] || null };
   }).filter(t=>t.activities).sort((a,b)=>b.doctors-a.doctors || b.activities-a.activities || a.topic.localeCompare(b.topic));
 }
 // Literal mention facets never propagate molecule sentiment to a brand.
 export function statementFacets(row) {
   const text=row.text||'';
   const named=names=>names.filter(name=>new RegExp(`\\b${name}\\b`,'i').test(text));
-  const brand=named(['Wegovy','Ozempic','Rybelsus','Mounjaro','Yurpeak']);
-  const molecule=named(['Semaglutide','Tirzepatide','Liraglutide']);
+  const brand=named(['Wegovy','Ozempic','Rybelsus','Mounjaro','Yurpeak','Awiqli']);
+  const molecule=named(['Semaglutide','Tirzepatide','Liraglutide','Insulin icodec']);
   const origin=[];
   if(/\bgeneric(?:s)?\b/i.test(text))origin.push('Generic');
   if(/\b(?:innovator|originator)(?:s)?\b/i.test(text))origin.push('Innovator');
@@ -109,4 +134,30 @@ export function formatTopicLabel(value) {
     if(abbreviations.has(word.toLowerCase()))return word.toLowerCase()==='hba1c'?'HbA1c':word.toUpperCase();
     return word.replace(/\b[a-z]/g,letter=>letter.toUpperCase());
   }).join('');
+}
+
+export function executiveBrief(rows, links, window, selectedTopic = '') {
+  const included = rows.filter(r=>publicationInWindow(r,window) && statementSourceKey(links[r.source]?.url));
+  const named = included.filter(r=>doctorNames(r).length);
+  const summary = activitySummary(included, links, window);
+  const namedSummary = activitySummary(named, links, window);
+  const topics = conversationSignals(named, links, window);
+  const active = topics.find(t=>t.topic===selectedTopic) || topics[0] || null;
+  const topicRows = active ? named.filter(r=>r.themes.includes(active.topic)) : named;
+  const voices = [...new Set(topicRows.flatMap(doctorNames))].map(name=>{
+    const statements = topicRows.filter(r=>doctorNames(r).includes(name)).sort((a,b)=>(b.date||'').localeCompare(a.date||'')||a.id.localeCompare(b.id));
+    return {name, latest:statements[0], activities:activitySummary(statements,links,window).activities.length};
+  }).sort((a,b)=>b.activities-a.activities || a.name.localeCompare(b.name));
+  // Verification describes the captured source, not the truth of a clinical claim.
+  const pages = new Map();
+  for(const r of included) {
+    const link=links[r.source], url=statementSourceKey(link.url);
+    const checks=pages.get(url)||new Set();checks.add(link.check);pages.set(url,checks);
+  }
+  const pageChecked=[...pages.values()].filter(checks=>checks.size===1&&checks.has('page')).length;
+  const indexOnly=[...pages.values()].filter(checks=>checks.size===1&&checks.has('index')).length;
+  return {summary, namedActivities:namedSummary.activities.length, topics, active, voices,
+    latestDate:included.map(r=>r.date).filter(Boolean).sort().at(-1)||null,
+    quality:{pageChecked,indexOnly,other:pages.size-pageChecked-indexOnly,total:pages.size},
+    otherActivities:summary.activities.length-namedSummary.activities.length};
 }

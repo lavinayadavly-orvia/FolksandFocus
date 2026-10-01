@@ -12,8 +12,8 @@
     <div class="brand brand-lockup"><div class="dolytics-wordmark"><img src="./folksandfocus-mark.png" alt="" width="40" height="40"><strong>DOLytics</strong></div><small>Practice. Perspective. Precision.</small></div>
     <nav aria-label="Primary navigation">
       <button class="nav-item active" data-view="welcome">HOME</button>
-      <button class="nav-item" data-view="persona">Clinical Voices</button>
-      <button class="nav-item" data-view="listening">Social Listening</button>
+      <button class="nav-item" data-view="persona">Dashboard</button>
+      <button class="nav-item" data-view="analytics">Analytics</button>
       <button class="nav-item" data-view="governance"><span>07</span>Governance</button>
     </nav>
     <div class="sidebar-foot"><div class="system-state"><i></i><div><strong>Public-source index</strong><small id="pipelineStamp">Checking latest refresh</small></div></div><div class="user"><span>LY</span><div><strong>India Medical Affairs</strong><small>Reviewer workspace</small></div></div></div>
@@ -24,13 +24,14 @@
     <section id="welcome" class="view active-view">
       <div class="welcome-hero">
         <div class="welcome-copy"><h1>Welcome</h1></div>
-      <div class="welcome-destinations"><button data-jump="persona"><strong>Clinical Voices</strong><b aria-hidden="true">&#8594;</b></button><button data-jump="listening"><strong>Social Listening</strong><b aria-hidden="true">&#8594;</b></button></div>
+      <div class="welcome-destinations"><button data-jump="persona"><strong>Open Dashboard</strong><b aria-hidden="true">&#8594;</b></button></div>
       <footer class="welcome-footer"><strong>DOLytics</strong><span>Practice. Perspective. Precision.</span></footer>
       </div>
-      <div class="welcome-art"><img src="./welcome-physicians-voices.png" alt="Watercolor physicians sharing ideas through conversation bubbles, a sharing paper plane and a podcast microphone, connected to an expert network" width="1254" height="1254" fetchpriority="high"></div>
+      <div class="welcome-art"><img src="./welcome-physicians-voices.png?v=20261001-wider-clinic" alt="Wide soft pastel clinic sketch of a senior doctor holding a blue notebook, with loose silver-streaked hair and bold rectangular glasses, an attentive nurse, research poster and window overlooking greenery" width="1254" height="1254" fetchpriority="high"></div>
     </section>
     <section id="persona" class="view" aria-label="Clinical Voices workspace"><div id="personaRoot" aria-live="polite">Loading profiles...</div></section>
     <section id="listening" class="view" aria-label="Social listening workspace"><div id="listeningRoot"></div></section>
+    <section id="analytics" class="view"><div class="persona-intro"><h2>Analytics</h2></div><p role="status">Loading cohort analytics...</p></section>
     <span id="navCaseCount" hidden>0</span>
     <section id="overview" class="view">
       <div class="command-toolbar">
@@ -54,13 +55,13 @@
       </div>
     </section>
     <section id="coverage" class="view">
-      <div class="section-intro coverage-intro"><p>Pan-India coverage across five regions. Mapped counts represent verified profiles, not the total practising population.</p><div class="coverage-stamp"><span>Verification</span><strong>Institution + independent source</strong></div></div>
+      <div class="section-intro coverage-intro"><p>Source-backed professional profiles, not a national workforce census. Geographic charts include verified locations only.</p><div class="coverage-stamp"><span>Verification</span><strong>Registry checks remain separate</strong></div></div>
       <div id="coverageMetrics" class="coverage-metrics"></div>
       <div id="coverageWorkbench"></div>
       <div class="coverage-dashboard">
         <section class="panel coverage-role"><div class="panel-head"><div><p class="kicker">Pan-India universe</p><h2>National specialty benchmarks</h2></div><span class="count-label">Association-based counts</span></div><div id="roleDistribution" class="role-grid"></div><p class="coverage-caveat">These are the best published national association benchmarks, not mutually exclusive practitioner counts. RSSDI includes physicians, diabetologists and endocrinologists; NMC specialisation data is still being consolidated.</p></section>
         <section class="panel coverage-social"><div class="panel-head"><div><p class="kicker">Digital footprint search</p><h2>Resolved channel coverage</h2></div><span class="count-label">Source-backed only</span></div><div id="socialActivityStats" class="social-grid"></div><p class="coverage-caveat">Instagram remains unresolved in the current pass. Post volume and engagement are shown only where a public source reports them.</p></section>
-        <section class="panel coverage-dol"><div class="panel-head"><div><p class="kicker">Digital opinion leaders</p><h2>DOL maturity classification</h2></div><span class="count-label">Provisional until reviewed</span></div><div id="dolClassifications" class="dol-grid"></div><p class="coverage-caveat">Trendsetters require an established KOL tier and verified dossier. Candidate Rising Stars and Early Sparks are algorithmic discovery classes pending identity and clinical-role review.</p></section>
+        <section class="panel coverage-dol"><div class="panel-head"><div><p class="kicker">Digital opinion leaders</p><h2>DOL maturity classification</h2></div><span class="count-label">Experience evidence required</span></div><div id="dolClassifications" class="dol-grid"></div><p class="coverage-caveat">Hospital listings and publications do not establish experience tiers. Profiles remain unclassified until experience evidence is verified.</p></section>
         <section class="panel coverage-region"><div class="panel-head"><div><p class="kicker">National footprint</p><h2>Mapped experts by region</h2></div><span class="count-label">Five operating regions</span></div><div id="regionDistribution" class="distribution-list"></div></section>
         <section class="panel coverage-map"><div class="panel-head"><div><p class="kicker">City distribution</p><h2>Mapped experts by city</h2></div><span class="count-label">Identity-resolved people</span></div><div id="cityDistribution" class="distribution-list"></div></section>
         <section class="panel coverage-tier"><div class="panel-head"><div><p class="kicker">Influence profile</p><h2>Coverage by analyst tier</h2></div></div><div id="tierDistribution" class="tier-grid"></div></section>

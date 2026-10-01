@@ -7,3 +7,4 @@ node_modules/
 *.sqlite-*
 *.db
 *.db-*
+__pycache__/

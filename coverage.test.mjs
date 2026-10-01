@@ -31,6 +31,16 @@ test('Marimekko empty selection has no fabricated segments',()=>{
   assert.equal(build([]).length,0);
 });
 
+test('New specialties retain their own names and do not disappear or inflate Cardiology',()=>{
+  const people=[{region:'South',specialties:['Cardiac Anaesthesiology']},{region:'South',specialties:['Cardiology']}];
+  const column=build(people)[0];
+  assert.equal(column.segments.length,2);
+  assert.equal(column.segments.reduce((n,s)=>n+s.count,0),2);
+  assert.equal(column.segments.find(s=>s.specialty==='Cardiac Anaesthesiology').height,0.5);
+  assert.equal(column.segments.find(s=>s.specialty==='Cardiology').count,1);
+  assert.ok(context.coverageSpecialtyLabels(people).includes('Cardiac Anaesthesiology'));
+});
+
 test('Marimekko conserves records with unknown geography',()=>{
   const columns=build([{...researchProfiles[0],region:null}]);
   assert.equal(columns[0].region,'Unclassified');

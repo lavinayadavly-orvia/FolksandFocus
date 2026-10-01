@@ -1,4 +1,4 @@
-import { audits, evidence, hcps, researchProfiles, safetyCases, socialAccounts, socialPosts } from "../../data.mjs";
+import { audits, evidence, hcps, researchProfiles, researchInfo, publicationReview, cohortPublications, safetyCases, socialAccounts, socialPosts } from "../../data.mjs";
 import { openAlexDiscovery } from "../../generated/openalex-discovery.mjs";
 import { cohortDiscovery } from "../../generated/cohort-discovery.mjs";
 import { caseCompleteness, transitionCase } from "../../domain.mjs";
@@ -7,16 +7,18 @@ import { buildHcpAuditCard } from "../../audit-card.mjs";
 import { d1Adapter } from "../../backend/database.mjs";
 import { IntelligenceStore } from "../../backend/store.mjs";
 import { intelligenceApi } from "../../backend/api.mjs";
+import { listeningCohort } from '../../listening-cohort.mjs';
+import { articleDiscovery } from '../../data.mjs';
 
 const cases=safetyCases.map(item=>({...item}));
 const auditLog=audits.map(item=>({...item}));
 const response=(payload,status=200)=>Response.json(payload,{status,headers:{"cache-control":"no-store"}});
-const scored=()=>researchProfiles.map(person=>{const verified=person.footprints.filter(item=>item.confidence==="VERIFIED").length;const sourceTypes=new Set(person.footprints.map(item=>item.type)).size;return{id:person.id,name:person.name,specialty:person.specialty,city:person.city,institution:person.affiliation,credentials:"Public-source identity dossier",registry:"Not collected",verification:person.matchConfidence>=95?"VERIFIED":"REVIEW",focus:`${person.region} India · ${person.tier}`,movement:0,scorecard:{score:person.footprints.length,confidence:person.matchConfidence,components:{identityMatch:person.matchConfidence,verifiedSources:verified,sourceBreadth:sourceTypes},evidenceCount:person.footprints.length,acceptedEvidence:verified,modelVersion:"dossier-1"}}}).sort((a,b)=>b.scorecard.score-a.scorecard.score);
+const scored=()=>researchProfiles.map(person=>{const verified=person.footprints.filter(item=>item.confidence==="VERIFIED").length;const sourceTypes=new Set(person.footprints.map(item=>item.type)).size;return{id:person.id,name:person.name,specialty:person.specialty,city:person.city,institution:person.affiliation,credentials:"Public-source identity dossier",registry:"Not collected",verification:person.sourceConfirmed?"SOURCE_CONFIRMED":person.matchConfidence>=95?"VERIFIED":"REVIEW",focus:`${person.region} India · ${person.tier}`,movement:0,scorecard:{score:person.footprints.length,confidence:person.matchConfidence,components:{identityMatch:person.matchConfidence,verifiedSources:verified,sourceBreadth:sourceTypes},evidenceCount:person.footprints.length,acceptedEvidence:verified,modelVersion:"dossier-1"}}}).sort((a,b)=>b.scorecard.score-a.scorecard.score);
 
 function overview(){
   const leaders=scored(),sources=researchProfiles.flatMap(person=>person.footprints),verified=sources.filter(item=>item.confidence==="VERIFIED");
   const byType=type=>sources.filter(item=>item.type===type).length;
-  return {generatedAt:new Date().toISOString(),headline:"The current workspace contains a source-backed Pan-India expert map.",summary:"Every visible person is linked to named public sources. Topic trends, claim-level evidence, social listening and safety cases remain empty until a real ingestion pipeline supplies reviewable records.",confidence:Math.round(researchProfiles.reduce((sum,item)=>sum+item.matchConfidence,0)/researchProfiles.length),confidenceNote:"Confidence represents identity matching, not clinical influence",tags:["Five regions","Public provenance","No synthetic records"],metrics:[{label:"Mapped experts",value:researchProfiles.length,detail:"Named public-source dossiers"},{label:"Verified sources",value:verified.length,detail:`${sources.length-verified.length} record requires review`},{label:"Regions",value:new Set(researchProfiles.map(item=>item.region)).size,detail:"North, South, East, West, Central"},{label:"Cities",value:new Set(researchProfiles.map(item=>item.city)).size,detail:"Current evidence-backed footprint"}],leaders:leaders.slice(0,4),attention:[{severity:"info",title:"No live listening connector configured",detail:"Trend and narrative panels stay empty until ingestion is connected.",time:"Open"},{severity:"watch",title:"One source record requires confirmation",detail:"It is excluded from verified-source totals.",time:"1"}],themes:[],themeLabels:[],sources:[{name:"Institutional profiles",coverage:byType("INSTITUTION"),state:"Source records"},{name:"Publications",coverage:byType("PUBLICATION"),state:"Source records"},{name:"Conference programmes",coverage:byType("CONFERENCE"),state:"Source records"},{name:"Professional social",coverage:byType("SOCIAL"),state:"Source records"}]};
+  return {generatedAt:new Date().toISOString(),headline:"The current workspace contains a source-backed Pan-India expert map.",summary:"Every visible person is linked to named public sources. Topic trends, claim-level evidence, social listening and safety cases remain empty until a real ingestion pipeline supplies reviewable records.",confidence:Math.round(researchProfiles.filter(p=>p.matchConfidence!=null).reduce((sum,item)=>sum+item.matchConfidence,0)/Math.max(1,researchProfiles.filter(p=>p.matchConfidence!=null).length)),confidenceNote:"Identity confidence applies only to assessed legacy dossiers; new cohort matches remain unscored",tags:["Five regions","Public provenance","No synthetic records"],metrics:[{label:"Mapped experts",value:researchProfiles.length,detail:"Named public-source dossiers"},{label:"Verified sources",value:verified.length,detail:`${sources.length-verified.length} record requires review`},{label:"Regions",value:new Set(researchProfiles.filter(p=>p.region!=="Not verified").map(item=>item.region)).size,detail:"North, South, East, West, Central"},{label:"Cities",value:new Set(researchProfiles.filter(p=>p.city!=="Not verified").map(item=>item.city)).size,detail:"Current evidence-backed footprint"}],leaders:leaders.slice(0,4),attention:[{severity:"info",title:"No live listening connector configured",detail:"Trend and narrative panels stay empty until ingestion is connected.",time:"Open"},{severity:"watch",title:"One source record requires confirmation",detail:"It is excluded from verified-source totals.",time:"1"}],themes:[],themeLabels:[],sources:[{name:"Institutional profiles",coverage:byType("INSTITUTION"),state:"Source records"},{name:"Publications",coverage:byType("PUBLICATION"),state:"Source records"},{name:"Conference programmes",coverage:byType("CONFERENCE"),state:"Source records"},{name:"Professional social",coverage:byType("SOCIAL"),state:"Source records"}]};
 }
 
 export async function onRequest({request,params,env={}}){
@@ -27,10 +29,14 @@ export async function onRequest({request,params,env={}}){
   }
   if(request.method==="GET"&&path==="overview")return response(overview());
   if(request.method==="GET"&&path==="hcps")return response({items:scored(),modelVersion:"2.3"});
-  if(request.method==="GET"&&path==="research")return response({items:researchProfiles,method:"Public-source records are identity-resolved before inclusion; poster and abstract records retain a review state when event-level confirmation is incomplete.",researchedAt:"2026-09-24"});
+  if(request.method==="GET"&&path==="research")return response({items:researchProfiles,...researchInfo});
+  if(request.method==="GET"&&path==="publication-review")return response(publicationReview);
+  if(request.method==="GET"&&path==="publication-collection")return response(cohortPublications);
   if(request.method==="GET"&&path==="discovery")return response(openAlexDiscovery);
   if(request.method==="GET"&&path==="candidates")return response(cohortDiscovery);
-  if(request.method==="GET"&&path==="social-monitor")return response(buildSocialMonitor(socialAccounts,socialPosts,researchProfiles));
+  if(request.method==="GET"&&path==="listening-cohort")return response(listeningCohort);
+  if(request.method==="GET"&&path==="article-discovery")return response(articleDiscovery);
+  if(request.method==="GET"&&path==="social-monitor")return response(buildSocialMonitor(listeningCohort.accounts,listeningCohort.posts,researchProfiles));
   const auditCard=path.match(/^hcps\/([^/]+)\/audit-card$/);
   if(request.method==="GET"&&auditCard){const person=researchProfiles.find(item=>item.id===auditCard[1]);return person?response(buildHcpAuditCard(person,socialAccounts,socialPosts)):response({error:"HCP not found"},404)}
   if(request.method==="GET"&&path==="evidence")return response({items:evidence});

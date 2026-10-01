@@ -1,10 +1,39 @@
 import { attachDiscoveredFootprints } from './source-library.mjs';
+import {applyReviewedGeography} from './geography.mjs';
+import { confirmedCohort as capturedCohort } from './generated/confirmed-cohort.mjs';
+import {applyCohortIdentityReviews, projectCollectionToCohort} from './cohort-review.mjs';
+import { integrateCohort, researchMetadata } from './cohort-integration.mjs';
+import { enrichSourceProfiles, refreshedSources } from './cohort-source-refresh.mjs';
+import { cohortPublications as collectedPublications } from './generated/cohort-publications.mjs';
+import { enrichPublicationProfiles, publicationDate } from './publication-resolution.mjs';
+import { profileSourceDiscovery as rawSourceDiscovery } from './generated/profile-source-discovery.mjs';
+import { enrichDiscoveryProfiles } from './profile-source-discovery.mjs';
+import { videoMetadata } from './generated/video-metadata.mjs';
+import { enrichVideoDiscovery } from './video-metadata.mjs';
+import { articleDiscovery as collectedArticles } from './generated/article-discovery.mjs';
+import { enrichArticleProfiles, applyArticleReviews } from './article-discovery.mjs';
+import { articleReviews } from './article-reviews.mjs';
+import {reportedExperience} from './generated/reported-experience.mjs';
+import {attachReportedExperience} from './reported-experience.mjs';
+import {attachQualificationExperience} from './qualification-experience.mjs';
+import {experienceExclusions} from './experience-reviews.mjs';
+import {reviewedQualificationEvidence} from './reviewed-qualification-evidence.mjs';
+import {collectedQualificationEvidence} from './generated/qualification-evidence.mjs';
+const confirmedCohort = applyCohortIdentityReviews(capturedCohort);
+const cohortPublications = projectCollectionToCohort(collectedPublications, confirmedCohort);
+const articleDiscovery = applyArticleReviews(projectCollectionToCohort(collectedArticles, confirmedCohort), articleReviews);
+const profileSourceDiscovery=enrichVideoDiscovery(projectCollectionToCohort(rawSourceDiscovery, confirmedCohort),videoMetadata,confirmedCohort.doctors);
+export { cohortPublications };
+export { articleDiscovery };
 export const hcps=[];
 export const evidence=[];
 export const safetyCases=[];
 export const audits=[];
 
 export const socialAccounts=[
+{id:'social-ajith-pillai-linkedin',hcpId:'HCP-108852fabdfd6a50c6',platform:'LinkedIn',handle:'Ajith Pillai',profileUrl:'https://in.linkedin.com/in/ajith-pillai-7552a020a',identityStatus:'VERIFIED',collectionStatus:'PUBLIC_OBSERVATION',lastCheckedAt:'2026-10-01',source:'Public LinkedIn profile and post index corroborated against hospital biography',sourceAccessStatus:'PUBLIC_INDEX_READ',identityEvidence:{institutionUrl:'https://www.kauveryhospital.com/doctors/chennai-radial-road/interventional-cardiology/prof-dr-ajith-pillai/',postCorroborationUrl:'https://www.linkedin.com/posts/ajith-pillai-7552a020a_teaching-is-always-a-pleasure-and-relearning-activity-7166969331740819456-AzJA',matchedFields:['Full name','Head of Cardiology at Kauvery Kovilambakkam/Radial Road Chennai','Structural and interventional cardiology','UCLA training'],checkedAt:'2026-10-01',limitations:'Public indexed identity corroboration, not authenticated account control. Direct post reader denied by robots; indexed author and body inspected. Relative publication date is not an exact date. Namesake anesthetist and technology analyst excluded.'}},
+{id:'social-abhinav-chhabra-linkedin',hcpId:'HCP-9a8d00dbd2b616ba33',platform:'LinkedIn',handle:'Abhinav Chhabra',profileUrl:'https://in.linkedin.com/in/abhinav-chhabra-992b39112',identityStatus:'VERIFIED',collectionStatus:'PUBLIC_OBSERVATION',lastCheckedAt:'2026-10-01',source:'Public LinkedIn post and profile index matched to hospital profile',sourceAccessStatus:'PUBLIC_INDEX_READ',identityEvidence:{institutionUrl:'https://www.medanta.org/hospitals-near-me/gurugram-hospital/speciality/cardiology/doctor/dr-abhinav-chhabra',postCorroborationUrl:'https://www.linkedin.com/posts/abhinav-chhabra-992b39112_triclip-structuralintervention-rajatpachuri-activity-7461349090468077569-bjox',matchedFields:['Full name','Medanta Gurugram affiliation','Interventional cardiology specialty'],checkedAt:'2026-10-01',limitations:'Public post author links to the indexed professional account. Profile direct access unavailable. This is identity corroboration, not authentication of account control. Relative date and engagement are not converted into exact values.'}},
+{id:'social-gagan-velayudhan-linkedin',hcpId:'HCP-6ec514c5ecd9490363',platform:'LinkedIn',handle:'Gagan Velayudhan',profileUrl:'https://in.linkedin.com/in/gagan-velayudhan-1132121a',identityStatus:'VERIFIED',collectionStatus:'PUBLIC_OBSERVATION',lastCheckedAt:'2026-10-01',source:'Public LinkedIn index matched to institutional biography',sourceAccessStatus:'PUBLIC_INDEX_READ',identityEvidence:{institutionUrl:'https://www.asterhospitals.in/doctors/aster-mims-kottakkal/dr-gagan-velayudhan',employerCorroborationUrl:'https://www.linkedin.com/company/astermims-kottakkal',matchedFields:['Full name','Aster MIMS Kottakkal affiliation','Malappuram location','Government TD Medical College 2013-2016','Medical education completion2008 and postgraduate completion2013'],checkedAt:'2026-10-01',limitations:'Indexed observation, not live access or ownership authentication. Relative post dates, shared-post authorship and engagement not imported.'}},
 {id:"social-am-x",hcpId:"kol-anoop-misra",platform:"X",handle:"@docanoopmisra",profileUrl:"https://x.com/docanoopmisra",identityStatus:"VERIFIED",collectionStatus:"CONNECTOR_REQUIRED",lastCheckedAt:"2026-09-24T12:00:00.000Z",source:"Public profile"},
 {id:"social-sj-x",hcpId:"kol-shashank-joshi",platform:"X",handle:"@AskDrShashank",profileUrl:"https://x.com/AskDrShashank",identityStatus:"VERIFIED",collectionStatus:"CONNECTOR_REQUIRED",lastCheckedAt:"2026-09-24T12:00:00.000Z",source:"Public profile"},
 {id:"social-mm-x",hcpId:"kol-ambrish-mithal",platform:"X",handle:"@DrAmbrishMithal",profileUrl:"https://x.com/DrAmbrishMithal",identityStatus:"VERIFIED",collectionStatus:"CONNECTOR_REQUIRED",lastCheckedAt:"2026-09-24T12:00:00.000Z",source:"Public profile"},
@@ -12,10 +41,12 @@ export const socialAccounts=[
 ];
 
 export const socialPosts=[
+{id:'linkedin-7166969331740819456',accountId:'social-ajith-pillai-linkedin',hcpId:'HCP-108852fabdfd6a50c6',platform:'LinkedIn',postType:'POST',title:'Valve-intervention training at Kauvery',summary:'Pillai describes teaching as an opportunity to relearn and proposes an annual course to help interventional cardiologists develop valve-intervention skills.',contentType:'PARAPHRASE',publishedAt:null,dateAsReported:'2y',capturedAt:'2026-10-01',url:'https://www.linkedin.com/posts/ajith-pillai-7552a020a_teaching-is-always-a-pleasure-and-relearning-activity-7166969331740819456-AzJA',topics:['Valve interventions','Clinical training'],metrics:{views:null,likes:null,comments:null,reposts:null},metricStatus:'NOT_ESTABLISHED',reviewStatus:'VERIFIED',sentiment:null,provenance:'Public search index names Ajith Pillai as post author; body identifies Kauvery Radial Road Chennai, corroborated against institutional biography and professional account. Direct fetch unavailable. Paraphrase, not quotation or clinical efficacy finding. Relative2y retained without date inference; excluded from dated trend analysis. Reactions on individual comments are not attributed to post totals, and tagged companies do not establish sponsorship.'},
+{id:'linkedin-7461349090468077569',accountId:'social-abhinav-chhabra-linkedin',hcpId:'HCP-9a8d00dbd2b616ba33',platform:'LinkedIn',postType:'POST',title:'Structural heart interventions at Medanta',summary:'Chhabra describes participation in a Medanta structural-heart programme involving TriClip, TEER and TAVI, and reports a team procedure milestone.',contentType:'PARAPHRASE',publishedAt:null,dateAsReported:'3mo Edited',capturedAt:'2026-10-01',url:'https://www.linkedin.com/posts/abhinav-chhabra-992b39112_triclip-structuralintervention-rajatpachuri-activity-7461349090468077569-bjox',topics:['Structural heart interventions','TAVI','TEER'],metrics:{views:null,likes:null,comments:null,reposts:null},metricStatus:'NOT_ESTABLISHED',reviewStatus:'VERIFIED',sentiment:null,provenance:'Public LinkedIn post heading names Abhinav Chhabra and links to the matched account. Source body corroborates Medanta and structural cardiology. Summary is a paraphrase, not a quotation. Team procedure volume is a source-reported claim, not a verified outcome or social engagement metric. Relative publication date retained; excluded from dated trend analysis.'},
 {id:"yt-l5qIcj-RylA",accountId:"social-vm-yt",hcpId:"kol-v-mohan",platform:"YouTube",postType:"VIDEO",title:"Public diabetes diet education video",publishedAt:null,capturedAt:"2026-09-24T12:00:00.000Z",url:"https://www.youtube.com/watch?v=l5qIcj-RylA",topics:["Diabetes education","Nutrition"],metrics:{views:3200000,likes:55000,comments:null,reposts:null},metricStatus:"OBSERVED_APPROXIMATE",reviewStatus:"VERIFIED",provenance:"Public YouTube video page; values recorded as approximate at capture time"}
 ];
 
-export const researchProfiles=[
+export const legacyProfiles=[
 {id:"kol-anoop-misra",name:"Prof Anoop Misra",specialty:"Endocrinology and metabolic medicine",city:"New Delhi",state:"Delhi",region:"North",affiliation:"Fortis C-DOC; N-DOC; Diabetes Foundation India",tier:"National KOL",matchConfidence:99,aliases:["Anoop Misra","Prof (Dr) Anoop Misra"],footprints:[
 {id:"src-am-1",type:"INSTITUTION",title:"Executive Chairman, Fortis C-DOC",summary:"Fortis identifies Misra as Executive Chairman of Fortis C-DOC and links him to N-DOC and Diabetes Foundation India.",publisher:"Fortis Healthcare",date:"Current profile",confidence:"VERIFIED",url:"https://www.fortishealthcare.com/doctors/dr-anoop-misra-2205"},
 {id:"src-am-2",type:"PUBLICATION",title:"Revised definition of obesity in Asian Indians living in India",summary:"Lead-author publication defining staged obesity for Asian Indians; PubMed supplies authors, affiliations, DOI and conflict-of-interest disclosures.",publisher:"PubMed / Diabetes & Metabolic Syndrome",date:"15 Jan 2025",confidence:"VERIFIED",url:"https://pubmed.ncbi.nlm.nih.gov/39814628/"},
@@ -71,10 +102,31 @@ export const researchProfiles=[
 {id:"src-pg-1",type:"INSTITUTION",title:"Consultant, Internal Medicine Services",summary:"The hospital profile verifies Gupta's Bhopal practice and lists endocrinology, diabetes, obesity and metabolic disorders among his clinical areas.",publisher:"Sagar Multispeciality Hospital",date:"Current profile",confidence:"VERIFIED",url:"https://www.smhbhopal.com/doctor-profile/66/dr-prakhar-gupta"},
 {id:"src-pg-2",type:"PUBLICATION",title:"Published clinician and medical educator",summary:"The institutional profile records research publication and postgraduate teaching activity; individual publication-level verification remains in the research queue.",publisher:"Sagar Multispeciality Hospital",date:"Current profile",confidence:"REVIEW",url:"https://www.smhbhopal.com/doctor-profile/66/dr-prakhar-gupta"}]}
 ];
-attachDiscoveredFootprints(researchProfiles);
+attachDiscoveredFootprints(legacyProfiles);
+const integrated = integrateCohort(legacyProfiles, confirmedCohort);
+export const researchProfiles = attachQualificationExperience(attachReportedExperience(enrichArticleProfiles(enrichDiscoveryProfiles(enrichPublicationProfiles(enrichSourceProfiles(integrated.profiles),cohortPublications),profileSourceDiscovery),articleDiscovery),reportedExperience,experienceExclusions),confirmedCohort.doctors,new Date(),[...reviewedQualificationEvidence,...collectedQualificationEvidence]).map(applyReviewedGeography);
+export const researchInfo = researchMetadata(confirmedCohort, integrated.review);
+researchInfo.identityReview = confirmedCohort.identityReview;
+researchInfo.additionalSources=[...refreshedSources,...cohortPublications.publications.map(p=>({source_id:p.id,url:p.url,sourceUrl:p.sourceUrl,checkedAt:p.checkedAt,publisher:'NCBI PubMed'}))];
+researchInfo.publicationCollection={...cohortPublications.summary,window:cohortPublications.window,checkedAt:cohortPublications.generatedAt};
+researchInfo.sourceDiscovery={...profileSourceDiscovery.summary,checkedAt:profileSourceDiscovery.generatedAt,metadataCheckedAt:profileSourceDiscovery.metadataCheckedAt};
+researchInfo.articleDiscovery={...articleDiscovery.summary,checkedAt:articleDiscovery.checkedAt};
+export const cohortLegacyLinks = integrated.legacyLinks;
+export const externalResearchProfiles = integrated.externalProfiles;
+researchInfo.legacyLinks=cohortLegacyLinks;
+researchInfo.externalDossiers=externalResearchProfiles.length;
+const newPublicationReviews=cohortPublications.reviewPublications.map(p=>({
+  id:p.id,title:p.title,publication_type:p.publicationTypes.join(' / '),online_publication_date:publicationDate(p)||'Date not established',
+  source_url:p.url,authors_as_listed:[...new Set(cohortPublications.review.filter(r=>r.publicationId===p.id).map(r=>r.authorName))],
+  candidate_names:[...new Set(cohortPublications.review.filter(r=>r.publicationId===p.id).flatMap(r=>r.cohortIds.map(id=>researchProfiles.find(d=>d.id===id)?.name).filter(Boolean)))],
+  summary:'These author names overlap with the cohort but require additional identity evidence. Confirmed co-authors, if any, are linked separately.',
+  disclosure_summary:'Author matching is not an appraisal of clinical findings or sponsorship.',doctor_identity_links:[],
+  identity_reviews:cohortPublications.review.filter(r=>r.publicationId===p.id),checkedAt:p.checkedAt
+}));
+export const publicationReview = {items:[...confirmedCohort.publications,...newPublicationReviews],checkedAt:cohortPublications.generatedAt,identityLinking:'PENDING_FOR_REVIEWED_AUTHORS',includedInListening:false,providerNotice:cohortPublications.providerNotice};
 
 // Reuse identity-linked profile evidence; post mentions are not clinician accounts.
-for (const person of researchProfiles) {
+for (const person of legacyProfiles) {
   const profile = person.footprints.find(item => item.confidence === 'VERIFIED' && /^https:\/\/(?:www\.|in\.)?linkedin\.com\/in\//.test(item.url || ''));
   if (!profile) continue;
   socialAccounts.push({id:`social-${person.id}-linkedin`,hcpId:person.id,platform:'LinkedIn',handle:person.name,

@@ -6,7 +6,7 @@
     "start": "node server.mjs",
     "discover": "node scripts/discover-openalex.mjs",
     "discover:cohort": "node scripts/discover-cohort.mjs",
-    "test": "node --test domain.test.mjs coverage.test.mjs persona.test.mjs listening.test.mjs backend/framework.test.mjs backend/registry-resolution.test.mjs backend/network-discovery.test.mjs backend/profile-screening.test.mjs",
+    "test": "node --test voice-dashboard.test.mjs article-discovery.test.mjs video-metadata.test.mjs profile-source-discovery.test.mjs social-identity.test.mjs domain.test.mjs coverage.test.mjs persona.test.mjs listening.test.mjs listening-brief.test.mjs listening-cohort.test.mjs listening-refresh.test.mjs publication-resolution.test.mjs cohort-integration.test.mjs backend/framework.test.mjs backend/registry-resolution.test.mjs backend/network-discovery.test.mjs backend/profile-screening.test.mjs",
     "check": "node --check app.js && node --check persona-ui.mjs && node --check listening-ui.mjs && node --check listening-data.mjs && node --check coverage.js && node --check server.mjs && node --check social-monitor.mjs && node --check audit-card.mjs && node --check 'functions/api/[[path]].js' && npm test"
   }
 }

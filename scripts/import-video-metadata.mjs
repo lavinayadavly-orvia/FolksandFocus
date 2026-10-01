@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import {profileSourceDiscovery} from '../generated/profile-source-discovery.mjs';
+import {confirmedCohort} from '../generated/confirmed-cohort.mjs';
+import {enrichVideoDiscovery,isPatientStoryTitle} from '../video-metadata.mjs';
+const [input]=process.argv.slice(2);
+if(!input)throw Error('Usage: node scripts/import-video-metadata.mjs COLLECTION_JSON');
+const collection=JSON.parse(fs.readFileSync(input,'utf8'));
+collection.records=collection.records.map(r=>isPatientStoryTitle(r.title)?{id:r.id,url:r.url,sourceUrl:r.sourceUrl,checkedAt:r.checkedAt,sha256:r.sha256,status:'EXCLUDED_PATIENT_STORY'}:r);
+const allowed=new Set(profileSourceDiscovery.doctors.flatMap(d=>d.candidates).filter(c=>c.platform==='YouTube'&&c.kind==='CONTENT').map(c=>c.id));
+for(const r of collection.records)if(!allowed.has(r.id))throw Error('Video outside source discovery');
+const result=enrichVideoDiscovery(profileSourceDiscovery,collection,confirmedCohort.doctors);
+fs.writeFileSync(new URL('../generated/video-metadata.mjs',import.meta.url),`// Public YouTube oEmbed metadata only; no doctor account or statement verification implied.\nexport const videoMetadata=${JSON.stringify(collection,null,2)};\n`);
+console.log(JSON.stringify(result.summary));

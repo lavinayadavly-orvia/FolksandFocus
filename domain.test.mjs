@@ -6,14 +6,17 @@ import { calculateInfluenceScore, caseCompleteness, transitionCase } from "./dom
 import { socialAccounts, socialPosts, researchProfiles } from './data.mjs';
 import { sourceLibrary } from './source-library.mjs';
 
-test('LinkedIn profiles are linked without turning mentions into authored posts',()=>{
+test('legacy LinkedIn profiles outside the canonical cohort remain in review, not cohort totals',()=>{
   const monitor=buildSocialMonitor(socialAccounts,socialPosts,researchProfiles);
   const linkedin=monitor.platformSummary.find(p=>p.platform==='LinkedIn');
   assert.equal(linkedin.accounts,3);
-  assert.equal(linkedin.posts,0);
-  assert.equal(linkedin.lastCheckedAt,null);
-  assert.equal(linkedin.status,'CONNECTOR_REQUIRED');
-  assert.ok(monitor.accounts.filter(a=>a.platform==='LinkedIn').every(a=>a.sourceRecordId&&a.profileUrl.includes('/in/')));
+  const legacyLinkedIn=socialAccounts.filter(a=>a.platform==='LinkedIn'&&!researchProfiles.some(p=>p.id===a.hcpId));
+  assert.equal(legacyLinkedIn.length,3);
+  assert.ok(legacyLinkedIn.every(a=>monitor.quality.review.some(r=>r.id===a.id)));
+  assert.equal(linkedin.posts,2);
+  assert.equal(linkedin.lastCheckedAt,'2026-10-01');
+  assert.equal(linkedin.status,'PUBLIC_OBSERVATION');
+  assert.ok(monitor.accounts.filter(a=>a.platform==='LinkedIn').every(a=>a.identityEvidence&&a.profileUrl.includes('/in/')));
   const sources=sourceLibrary.filter(s=>s.platform==='LinkedIn');
   assert.ok(sources.some(s=>s.relationship==='Authored'));
   assert.ok(sources.some(s=>s.relationship==='Institutional mention'));
@@ -21,7 +24,7 @@ test('LinkedIn profiles are linked without turning mentions into authored posts'
 
 test("social monitor keeps accounts separate from captured posts",()=>{
   const result=buildSocialMonitor(
-    [{id:"a1",hcpId:"h1",platform:"X",handle:"@doctor",lastCheckedAt:"2026-09-24T12:00:00.000Z",collectionStatus:"CONNECTOR_REQUIRED"}],
+    [{id:"a1",hcpId:"h1",platform:"X",handle:"@doctor",profileUrl:"https://x.com/doctor",identityStatus:"VERIFIED",lastCheckedAt:"2026-09-24T12:00:00.000Z",collectionStatus:"CONNECTOR_REQUIRED"}],
     [],
     [{id:"h1",name:"Dr Test"}]
   );

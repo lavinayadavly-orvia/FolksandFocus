@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {confirmedCohort} from '../generated/confirmed-cohort.mjs';
+import {resolvePublications} from '../publication-resolution.mjs';
+const [source,cohortPath]=process.argv.slice(2);
+if(!source||!cohortPath)throw new Error('Usage: node scripts/import-cohort-publications.mjs COLLECTION_JSON COHORT_JSON');
+const input=JSON.parse(fs.readFileSync(source,'utf8'));
+const hash=crypto.createHash('sha256').update(fs.readFileSync(cohortPath)).digest('hex');
+if(input.cohortHash!==hash||hash!==confirmedCohort.checksum)throw new Error('Cohort checksum mismatch');
+const data=resolvePublications(confirmedCohort.doctors,input);
+if(data.summary.searched!==confirmedCohort.doctors.length)throw new Error('Incomplete search: retain checkpoint and retry before publishing collection');
+fs.writeFileSync(new URL('../generated/cohort-publications.mjs',import.meta.url),`// Generated from public PubMed metadata; do not edit by hand.\nexport const cohortPublications = ${JSON.stringify(data,null,2)};\n`);
+console.log(JSON.stringify(data.summary,null,2));

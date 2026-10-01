@@ -1,0 +1,15 @@
+{
+  "review_status": "CONFLICT_REQUIRES_REVIEW",
+  "checked_on": "2026-09-28",
+  "submitted_claim": {"name":"Dr. Rajesh Khadgawat","council":"Delhi Medical Council","registration_number":"14920","registration_year":1992},
+  "name_search_match": {
+    "name":"Khadgawat Rajesh","registration_number":"13569","council":"Rajasthan Medical Council","registration_date":"22-02-1991","qualification":"mbbs","qualification_year":"1991","university":"U.Rajasthan",
+    "source_url":"https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Khadgawat&reg_no=&state=&year=&page=1&per_page=25",
+    "identity_status":"REVIEW","first_registration_confirmed":false
+  },
+  "number_search_result": {
+    "name":"ANJALI","registration_number":"DMC/R/14920","council":"Delhi Medical Council","registration_date":"26-04-2016",
+    "source_url":"https://nmc.org.in/indian-medical-register/search?search_type=advance&name=&reg_no=14920&state=DEL&year=&page=1&per_page=25"
+  },
+  "decision":"Do not mark the supplied claim VERIFIED_EXACT. Confirm identity and first registration before assigning an experience tier."
+}

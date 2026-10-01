@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-09-30",
+  "scope": "Targeted public-source checks, not exhaustive social-platform monitoring",
+  "publishedStatements": 8,
+  "newSourcePages": 7,
+  "additionalIdentityPagesChecked": ["https://www.healthshots.com/experts/dr-ashok-kumar-jhingan/"],
+  "sourceReviewDecisions": [
+    {"url":"https://www.manipalhospitals.com/jaipur/blog/diet-for-diabetes-foods-to-eat-avoid-portion-control/","status":"REVIEW_CREDIT_NOT_AUTHORSHIP","decision":"Reviewed-by credit alone does not establish personal clinician commentary. Not imported as a statement."},
+    {"url":"https://www.manipalhospitals.com/jaipur/blog/type-2-diabetes-symptoms-causes-treatment-diet-tips/","status":"REVIEW_CREDIT_NOT_AUTHORSHIP","decision":"Retain as discovery lead, not a doctor-authored post."},
+    {"url":"https://www.ndtv.com/authors/ankita-tiwari-8883","status":"IDENTITY_MISMATCH","decision":"Journalist with same name; not the Manipal endocrinologist. Excluded."},
+    {"url":"https://in.linkedin.com/in/binayak-sinha-5b996222","status":"IDENTITY_MISMATCH","decision":"IBM professional, not the cohort endocrinologist. Excluded."},
+    {"url":"https://www.ideacon.in/day2_program.php","status":"PROGRAMME_ONLY","decision":"Chair/session listings do not establish delivered statements. Not imported as commentary."}
+  ],
+  "nativeSocialPostsImported": 0,
+  "engagementMetricsImported": 0,
+  "pendingSources": [
+    {
+      "url": "https://www.theweek.in/health/more/2026/09/26/registries-help-us-track-patient-outcomes-in-the-real-world-dr-praveen-chandra.html",
+      "publisher": "The Week",
+      "status": "SEARCH_INDEX_ONLY_DIRECT_ACCESS_DENIED",
+      "name": "Praveen Chandra",
+      "decision": "Not imported as a clinician statement; article body not inspected. No access bypass attempted."
+    },
+    {
+      "url": "https://www.ndtv.com/health/family-health/if-your-diabetes-is-well-controlled-on-daily-insulin-should-you-switch-to-a-once-weekly-option-11846783",
+      "publisher": "NDTV",
+      "status": "ARTICLE_TIMEOUT_AUTHOR_INDEX_READ",
+      "name": "Rajesh Rajput",
+      "identitySourceUrl": "https://www.ndtv.com/authors/dr-rajesh-rajput-24564",
+      "decision": "Authored-article listing added to profile. No article-body interpretation or sentiment imported."
+    },
+    {
+      "url": "https://x.com/_PraveenChandra",
+      "publisher": "X",
+      "status": "ACCOUNT_CANDIDATE",
+      "name": "Praveen Chandra",
+      "identitySourceUrl": "https://www.pcronline.com/Physicians/Praveen-Chandra2",
+      "decision": "Professional directory displays this handle. Account ownership and native posts remain unverified. Mirrors not imported."
+    }
+  ],
+  "exclusions": [
+    "Updated copyright dates, related-news dates and search crawl dates are not publication dates.",
+    "Conference event dates are not social-post publication dates.",
+    "A company mentioning a doctor does not establish a doctor-owned account or endorsement.",
+    "Patient testimonials and identifiable patient stories were not imported."
+  ]
+}

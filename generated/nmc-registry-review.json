@@ -1,0 +1,1236 @@
+{
+  "retrieved_at": "2026-09-28T12:18:20.973Z",
+  "source": "NMC public IMR",
+  "purpose": "Professional registration verification; not a verified clinician roster",
+  "results": [
+    {
+      "target": "Shashank R Joshi",
+      "status": "SEARCHED",
+      "records": [],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Joshi+Shashank&reg_no=&year=&state=MAH&page=1&per_page=25",
+          "rows_returned": 0,
+          "total_pages": 1
+        }
+      ]
+    },
+    {
+      "target": "Anoop Misra",
+      "status": "BOUNDED_PARTIAL",
+      "records": [],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=1&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=2&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=3&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=4&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=5&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=6&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=7&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=8&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 34
+        }
+      ]
+    },
+    {
+      "target": "V Mohan",
+      "status": "BOUNDED_PARTIAL",
+      "records": [],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=1&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=2&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=3&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=4&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=5&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=6&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=7&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=8&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 98
+        }
+      ]
+    },
+    {
+      "target": "Duru Shah",
+      "status": "SEARCHED",
+      "records": [
+        {
+          "id": 13935822,
+          "name": "DURU SUSHIL SHAH",
+          "registration_no": "29575",
+          "registration_date": "17-01-1973",
+          "state_medical_council": "Maharashtra Medical Council",
+          "state_code": "MAH",
+          "year_of_info": 1973,
+          "qualification": "MBBS",
+          "qualification_year": "1972",
+          "university": null,
+          "additional_qualifications": [
+            {
+              "qualification": "D.F.P.",
+              "year": "1975",
+              "university": "C.P.S. BOMBAY"
+            },
+            {
+              "qualification": "Dip.OBG",
+              "year": "1975",
+              "university": "C.P.S. BOMBAY"
+            },
+            {
+              "qualification": "MD (OBG)",
+              "year": "1976",
+              "university": "GRANT MEDICAL COLLEGE, MUMBAI"
+            }
+          ],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Duru&reg_no=&year=&state=MAH&page=1&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "DURU SUSHIL SHAH",
+            "registration_number": "29575",
+            "state_medical_council": "Maharashtra Medical Council",
+            "council_registration_year": 1973,
+            "name_similarity": 0.6666666666666666,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 53,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "NAME_REVIEW_REQUIRED",
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Duru&reg_no=&year=&state=MAH&page=1&per_page=25"
+          }
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Duru&reg_no=&year=&state=MAH&page=1&per_page=25",
+          "rows_returned": 12,
+          "total_pages": 1
+        }
+      ]
+    },
+    {
+      "target": "Sanjay Kalra",
+      "status": "SEARCHED",
+      "records": [
+        {
+          "id": 13637907,
+          "name": "SANJAY KALRA",
+          "registration_no": "HN1973",
+          "registration_date": "03-11-2006",
+          "state_medical_council": "Haryana Medical Council",
+          "state_code": "HAR",
+          "year_of_info": 2006,
+          "qualification": "MBBS",
+          "qualification_year": "1991",
+          "university": "PUNJAB UNIVERSITY, CHANDIGARH",
+          "additional_qualifications": [
+            {
+              "qualification": "M.D. (MEDICINE)",
+              "year": "1997",
+              "university": "MDU, ROHTAK"
+            },
+            {
+              "qualification": "D.M.",
+              "year": "1999",
+              "university": "AIIMS, NEW DELHI"
+            },
+            {
+              "qualification": "D.M. (ENDOCRINOLOGY)",
+              "year": "2020",
+              "university": "AIIMS, NEW DELHI"
+            }
+          ],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Kalra&reg_no=&year=&state=HAR&page=2&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "SANJAY KALRA",
+            "registration_number": "HN1973",
+            "state_medical_council": "Haryana Medical Council",
+            "council_registration_year": 2006,
+            "name_similarity": 1,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 20,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "POSSIBLE_LATER_COUNCIL_REGISTRATION",
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Kalra&reg_no=&year=&state=HAR&page=2&per_page=25"
+          }
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Kalra&reg_no=&year=&state=HAR&page=1&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 2
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Kalra&reg_no=&year=&state=HAR&page=2&per_page=25",
+          "rows_returned": 18,
+          "total_pages": 2
+        }
+      ]
+    },
+    {
+      "target": "Banshi Saboo",
+      "status": "SEARCHED",
+      "records": [
+        {
+          "id": 13561759,
+          "name": "Saboo Banshi Damodarlal",
+          "registration_no": "G-21996",
+          "registration_date": "30-04-1994",
+          "state_medical_council": "Gujarat Medical Council",
+          "state_code": "GUJ",
+          "year_of_info": 1994,
+          "qualification": "M.B.B.S.",
+          "qualification_year": "1993",
+          "university": "U. Gujarat",
+          "additional_qualifications": [],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Banshi&reg_no=&year=&state=GUJ&page=1&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "Saboo Banshi Damodarlal",
+            "registration_number": "G-21996",
+            "state_medical_council": "Gujarat Medical Council",
+            "council_registration_year": 1994,
+            "name_similarity": 0.6666666666666666,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 32,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "NAME_REVIEW_REQUIRED",
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Banshi&reg_no=&year=&state=GUJ&page=1&per_page=25"
+          }
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Banshi&reg_no=&year=&state=GUJ&page=1&per_page=25",
+          "rows_returned": 15,
+          "total_pages": 1
+        }
+      ]
+    },
+    {
+      "target": "Awadhesh Kumar Singh",
+      "status": "SEARCHED",
+      "records": [
+        {
+          "id": 12630813,
+          "name": "Awadhesh Kumar Singh",
+          "registration_no": "53275",
+          "registration_date": "05-02-1997",
+          "state_medical_council": "West Bengal Medical Council",
+          "state_code": "WES",
+          "year_of_info": 1997,
+          "qualification": "M B B S",
+          "qualification_year": "1996",
+          "university": "Calcutta University",
+          "additional_qualifications": [],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Awadhesh&reg_no=&year=&state=WES&page=1&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "Awadhesh Kumar Singh",
+            "registration_number": "53275",
+            "state_medical_council": "West Bengal Medical Council",
+            "council_registration_year": 1997,
+            "name_similarity": 1,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 29,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Awadhesh&reg_no=&year=&state=WES&page=1&per_page=25"
+          }
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Awadhesh&reg_no=&year=&state=WES&page=1&per_page=25",
+          "rows_returned": 1,
+          "total_pages": 1
+        }
+      ]
+    },
+    {
+      "target": "Om J Lakhani",
+      "status": "SEARCHED",
+      "records": [
+        {
+          "id": 13581047,
+          "name": "Lakhani (Mrs) Rishma  Om  (Nee:Raiththa(Miss) Rishma Naresh)",
+          "registration_no": "G-41291",
+          "registration_date": "25-02-2009",
+          "state_medical_council": "Gujarat Medical Council",
+          "state_code": "GUJ",
+          "year_of_info": 2009,
+          "qualification": "M.B.B.S.",
+          "qualification_year": "2008",
+          "university": "U. Veer Narmad South Gujarat",
+          "additional_qualifications": [],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=3&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "Lakhani (Mrs) Rishma  Om  (Nee:Raiththa(Miss) Rishma Naresh)",
+            "registration_number": "G-41291",
+            "state_medical_council": "Gujarat Medical Council",
+            "council_registration_year": 2009,
+            "name_similarity": 0.2222222222222222,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 17,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "NAME_REVIEW_REQUIRED",
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=3&per_page=25"
+          }
+        },
+        {
+          "id": 13580500,
+          "name": "Lakhani Om Jitendra",
+          "registration_no": "G-40744",
+          "registration_date": "25-07-2008",
+          "state_medical_council": "Gujarat Medical Council",
+          "state_code": "GUJ",
+          "year_of_info": 2008,
+          "qualification": "M.B.B.S.",
+          "qualification_year": "2008",
+          "university": "U. Baroda",
+          "additional_qualifications": [],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=4&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "Lakhani Om Jitendra",
+            "registration_number": "G-40744",
+            "state_medical_council": "Gujarat Medical Council",
+            "council_registration_year": 2008,
+            "name_similarity": 0.5,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 18,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "NAME_REVIEW_REQUIRED",
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=4&per_page=25"
+          }
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=1&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 5
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=2&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 5
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=3&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 5
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=4&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 5
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=5&per_page=25",
+          "rows_returned": 11,
+          "total_pages": 5
+        }
+      ]
+    },
+    {
+      "target": "Cyriac Abby Philips",
+      "status": "SEARCHED",
+      "records": [
+        {
+          "id": 1160013,
+          "name": "Cyriac Abby Philips",
+          "registration_no": "46510",
+          "registration_date": "07-12-2012",
+          "state_medical_council": "Kerala State Medical Council",
+          "state_code": "TC",
+          "year_of_info": 2012,
+          "qualification": "MBBS",
+          "qualification_year": "2007",
+          "university": "Rajiv Gandhi Uty of HS",
+          "additional_qualifications": [],
+          "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Cyriac&reg_no=&year=&state=TC&page=1&per_page=25",
+          "identity_status": "REVIEW",
+          "first_registration_confirmed": false,
+          "assessment": {
+            "registered_name": "Cyriac Abby Philips",
+            "registration_number": "46510",
+            "state_medical_council": "Kerala State Medical Council",
+            "council_registration_year": 2012,
+            "name_similarity": 1,
+            "identity_status": "REVIEW",
+            "years_since_this_council_registration": 14,
+            "years_of_experience": null,
+            "axis_1_tier": null,
+            "flags": [
+              "POSSIBLE_LATER_COUNCIL_REGISTRATION",
+              "FIRST_MEDICAL_REGISTRATION_UNCONFIRMED"
+            ],
+            "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Cyriac&reg_no=&year=&state=TC&page=1&per_page=25"
+          }
+        }
+      ],
+      "queries": [
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Cyriac&reg_no=&year=&state=TC&page=1&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 3
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Cyriac&reg_no=&year=&state=TC&page=2&per_page=25",
+          "rows_returned": 25,
+          "total_pages": 3
+        },
+        {
+          "url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Cyriac&reg_no=&year=&state=TC&page=3&per_page=25",
+          "rows_returned": 24,
+          "total_pages": 3
+        }
+      ]
+    }
+  ],
+  "qualification_candidates": [
+    {
+      "id": 13888131,
+      "name": "ANOOP  KUMAR",
+      "registration_no": "DMC/R/7503",
+      "registration_date": "02-06-2011",
+      "state_medical_council": "Delhi Medical Council",
+      "state_code": "DEL",
+      "year_of_info": 2011,
+      "qualification": "M.B.B.S.",
+      "qualification_year": "2011",
+      "university": "Kurukshetra University",
+      "additional_qualifications": [
+        {
+          "qualification": "Doctor of Medicine - General Medicine",
+          "year": "2018",
+          "university": "PT. B.D. Sharma University of Health Sciences, Rohtak"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 14086479,
+      "name": "ANOOP DIXIT",
+      "registration_no": "2021010182",
+      "registration_date": "14-01-2021",
+      "state_medical_council": "Maharashtra Medical Council",
+      "state_code": "MAH",
+      "year_of_info": 2021,
+      "qualification": "Doctor in General Medicine",
+      "qualification_year": "2017",
+      "university": null,
+      "additional_qualifications": [],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=3&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 999234,
+      "name": "ANOOP KUMAR SRIVASTAVA",
+      "registration_no": "3286",
+      "registration_date": "22-06-2010",
+      "state_medical_council": "Uttarakhand Medical Council",
+      "state_code": "UTT",
+      "year_of_info": 2010,
+      "qualification": "MD (Gen.Med.)",
+      "qualification_year": "2010",
+      "university": "U.HNB, Garhwal",
+      "additional_qualifications": [],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=6&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13380298,
+      "name": "ANOOP M",
+      "registration_no": "APMC/FMR/90715",
+      "registration_date": "05-05-2015",
+      "state_medical_council": "Andhra Pradesh Medical Council",
+      "state_code": "AND",
+      "year_of_info": 2015,
+      "qualification": "M.B.B.S",
+      "qualification_year": "2001",
+      "university": "Bangalore University",
+      "additional_qualifications": [
+        {
+          "qualification": "MD-GENERAL MEDICINE",
+          "year": "2006",
+          "university": "Manipal Academy of Higher Education"
+        },
+        {
+          "qualification": "DNB-NEPHROLOGY",
+          "year": "2010",
+          "university": "National Board Of Examinations; New Delhi"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=6&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13378334,
+      "name": "ANOOP MEHTA",
+      "registration_no": "APMC/FMR/88749",
+      "registration_date": "24-09-2014",
+      "state_medical_council": "Andhra Pradesh Medical Council",
+      "state_code": "AND",
+      "year_of_info": 2014,
+      "qualification": "M.B.B.S",
+      "qualification_year": "2001",
+      "university": "Nagpur University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D. ( GENERAL MEDICINE)",
+          "year": "2006",
+          "university": "University of Mumbai"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=7&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 14028319,
+      "name": "ANOOP MOTIRAM BARDESKAR",
+      "registration_no": "2009062460",
+      "registration_date": "06-01-2009",
+      "state_medical_council": "Maharashtra Medical Council",
+      "state_code": "MAH",
+      "year_of_info": 2009,
+      "qualification": "MBBS",
+      "qualification_year": "2008",
+      "university": null,
+      "additional_qualifications": [
+        {
+          "qualification": "MD (Gen.Med.)",
+          "year": "2016",
+          "university": "D.Y. PATIL UNIVERSITY'S D.Y. PATIL MEDICAL COLLEGE, KOLHAPUR"
+        },
+        {
+          "qualification": "Diplomate N.B. (Card.)",
+          "year": "2019",
+          "university": "NATIONAL BOARD OF EXAMINATION,NEW DELHI"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Anoop&reg_no=&year=&state=&page=7&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13273815,
+      "name": "Aarathi, Eakambaram Mohan",
+      "registration_no": "129608",
+      "registration_date": "16-04-2018",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2018,
+      "qualification": "MBBS",
+      "qualification_year": "2018",
+      "university": "Bharath University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.S.(Obst.& Gynae.)",
+          "year": "2022",
+          "university": "KLE Academy of Higher Education & Research"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13218457,
+      "name": "Aarthi Mohana Rangaraj",
+      "registration_no": "74246",
+      "registration_date": "12-05-2004",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2004,
+      "qualification": "M.B.B.S",
+      "qualification_year": "2004",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(Obst. & Gynae.)",
+          "year": "2008",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13330898,
+      "name": "Adithi Mohan",
+      "registration_no": "186738",
+      "registration_date": "29-04-2024",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2024,
+      "qualification": "MBBS",
+      "qualification_year": "2019",
+      "university": "JSS Academy of Higher Education & Research",
+      "additional_qualifications": [
+        {
+          "qualification": "M.S.(Obst.& Gynae.)",
+          "year": "2023",
+          "university": "Nitte University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13186801,
+      "name": "Agarwal Sanjiv Madanmohan",
+      "registration_no": "42581",
+      "registration_date": "02-03-1987",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 1987,
+      "qualification": "Bachelor of Medicine, Bachelor",
+      "qualification_year": "1982",
+      "university": "University of Poona",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "1985",
+          "university": "University of Poona"
+        },
+        {
+          "qualification": "D.M.(Cardiology)",
+          "year": "1990",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13305099,
+      "name": "Ajay Mohan",
+      "registration_no": "160922",
+      "registration_date": "22-10-2021",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2021,
+      "qualification": "MBBS",
+      "qualification_year": "2010",
+      "university": "University of Calicut",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2016",
+          "university": "Manipal Academy of Higher Education"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=2&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13228590,
+      "name": "Ajith, Mohanan Nair",
+      "registration_no": "84380",
+      "registration_date": "15-07-2008",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2008,
+      "qualification": "MBBS",
+      "qualification_year": "2002",
+      "university": "University Of Kerala",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2006",
+          "university": "University Of Kerala"
+        },
+        {
+          "qualification": "D.M.(Neurology)",
+          "year": "2011",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=2&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13227218,
+      "name": "Akila Sree,  Pasupathi Bharathi Mohan",
+      "registration_no": "83008",
+      "registration_date": "10-03-2008",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2008,
+      "qualification": "MBBS",
+      "qualification_year": "2008",
+      "university": "Annamalai University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(Obstetrics and Gynaecology)",
+          "year": "2011",
+          "university": "Annamalai University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=2&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13219071,
+      "name": "Alaganandha, Mohan",
+      "registration_no": "74860",
+      "registration_date": "30-06-2004",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2004,
+      "qualification": "Bachelor of Medicine, Bachelor",
+      "qualification_year": "2004",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.S.(Obst.& Gynae.)",
+          "year": "2017",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=2&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13225043,
+      "name": "Amirthavalli, Rajamohan",
+      "registration_no": "80833",
+      "registration_date": "30-05-2007",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2007,
+      "qualification": "MBBS",
+      "qualification_year": "2007",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "Diploma in Obstetrics & Gynaecology",
+          "year": "2010",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        },
+        {
+          "qualification": "DNB.(Obst.& Gynae.)",
+          "year": "2012",
+          "university": "National Board of Examinations"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=3&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13205711,
+      "name": "Anandi, Chandramohan",
+      "registration_no": "61498",
+      "registration_date": "18-03-1998",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 1998,
+      "qualification": "MBBS",
+      "qualification_year": "1998",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2007",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=3&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13247518,
+      "name": "Archana Devi, Mohanarangan",
+      "registration_no": "103310",
+      "registration_date": "23-08-2013",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2013,
+      "qualification": "MBBS",
+      "qualification_year": "2013",
+      "university": "Pondicherry University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2017",
+          "university": "Sri Ramachandra University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=4&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13171519,
+      "name": "Arumugam Thiravia Mohan",
+      "registration_no": "27262",
+      "registration_date": "12-01-1976",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 1976,
+      "qualification": "M.B.B.S",
+      "qualification_year": "1976",
+      "university": "Madras",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "1979",
+          "university": "Madras University"
+        },
+        {
+          "qualification": "D.M.(Gastro-Entereology)",
+          "year": "1985",
+          "university": "Madras University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=5&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13185555,
+      "name": "Arumugapandian S Mohan",
+      "registration_no": "41333",
+      "registration_date": "25-07-1986",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 1986,
+      "qualification": "M.B.B.S.",
+      "qualification_year": "1986",
+      "university": "Madurai Kamaraj University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "1994",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=5&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13272093,
+      "name": "Arun Mohan, Arunachalam Dhandapani",
+      "registration_no": "127886",
+      "registration_date": "17-01-2018",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2018,
+      "qualification": "MBBS",
+      "qualification_year": "2017",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2023",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=5&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13232803,
+      "name": "Baby, Mohanraj",
+      "registration_no": "88593",
+      "registration_date": "13-01-2010",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2010,
+      "qualification": "MBBS",
+      "qualification_year": "2009",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(Obstetrics and Gynaecology)",
+          "year": "2022",
+          "university": "Annamalai University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=6&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13267901,
+      "name": "Balaji Venkateshwaran, Mohanavelu",
+      "registration_no": "123694",
+      "registration_date": "17-05-2017",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2017,
+      "qualification": "MBBS",
+      "qualification_year": "2016",
+      "university": "Amrita Vishwa Vidyapeetham University",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2022",
+          "university": "Pondicherry University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=7&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13283270,
+      "name": "Balakumaran, Mohanasundaram",
+      "registration_no": "139063",
+      "registration_date": "14-06-2019",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2019,
+      "qualification": "MBBS",
+      "qualification_year": "2019",
+      "university": "The Tamilnadu Dr.M.G.R.Medical University",
+      "additional_qualifications": [
+        {
+          "qualification": "DNB.(General Medicine)",
+          "year": "2023",
+          "university": "National Board of Examinations"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=7&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13297163,
+      "name": "Chadalavada Kranthi Mohan",
+      "registration_no": "152982",
+      "registration_date": "19-01-2021",
+      "state_medical_council": "Tamil Nadu Medical Council",
+      "state_code": "TAM",
+      "year_of_info": 2021,
+      "qualification": "MBBS",
+      "qualification_year": "2013",
+      "university": "Rajiv Gandhi University of Health Sciences",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D.(General Medicine)",
+          "year": "2017",
+          "university": "Rajiv Gandhi University of Health Sciences"
+        },
+        {
+          "qualification": "D.M.(Neurology)",
+          "year": "2020",
+          "university": "The Tamilnadu Dr.M.G.R.Medical University"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Mohan&reg_no=&year=&state=TAM&page=8&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13935822,
+      "name": "DURU SUSHIL SHAH",
+      "registration_no": "29575",
+      "registration_date": "17-01-1973",
+      "state_medical_council": "Maharashtra Medical Council",
+      "state_code": "MAH",
+      "year_of_info": 1973,
+      "qualification": "MBBS",
+      "qualification_year": "1972",
+      "university": null,
+      "additional_qualifications": [
+        {
+          "qualification": "D.F.P.",
+          "year": "1975",
+          "university": "C.P.S. BOMBAY"
+        },
+        {
+          "qualification": "Dip.OBG",
+          "year": "1975",
+          "university": "C.P.S. BOMBAY"
+        },
+        {
+          "qualification": "MD (OBG)",
+          "year": "1976",
+          "university": "GRANT MEDICAL COLLEGE, MUMBAI"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Duru&reg_no=&year=&state=MAH&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 14094928,
+      "name": "KANCHAN ATMARAM DURUGKAR",
+      "registration_no": "2021128648",
+      "registration_date": "20-12-2021",
+      "state_medical_council": "Maharashtra Medical Council",
+      "state_code": "MAH",
+      "year_of_info": 2021,
+      "qualification": "MBBS",
+      "qualification_year": "2009",
+      "university": null,
+      "additional_qualifications": [
+        {
+          "qualification": "M.S. (Obst. & Gynae.)",
+          "year": "2013",
+          "university": "GOVERNMENT MEDICAL COLLEGE, NAGPUR"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Duru&reg_no=&year=&state=MAH&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13637907,
+      "name": "SANJAY KALRA",
+      "registration_no": "HN1973",
+      "registration_date": "03-11-2006",
+      "state_medical_council": "Haryana Medical Council",
+      "state_code": "HAR",
+      "year_of_info": 2006,
+      "qualification": "MBBS",
+      "qualification_year": "1991",
+      "university": "PUNJAB UNIVERSITY, CHANDIGARH",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D. (MEDICINE)",
+          "year": "1997",
+          "university": "MDU, ROHTAK"
+        },
+        {
+          "qualification": "D.M.",
+          "year": "1999",
+          "university": "AIIMS, NEW DELHI"
+        },
+        {
+          "qualification": "D.M. (ENDOCRINOLOGY)",
+          "year": "2020",
+          "university": "AIIMS, NEW DELHI"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Kalra&reg_no=&year=&state=HAR&page=2&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13638267,
+      "name": "TUSHAR KALRA",
+      "registration_no": "HN2340",
+      "registration_date": "15-02-2007",
+      "state_medical_council": "Haryana Medical Council",
+      "state_code": "HAR",
+      "year_of_info": 2007,
+      "qualification": "MBBS",
+      "qualification_year": "1996",
+      "university": "KARNATAKA UNIVERSITY",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D. (GENERAL MEDICINE)",
+          "year": "1999",
+          "university": "KARNATAKA UNIVERSITY"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Kalra&reg_no=&year=&state=HAR&page=2&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13572419,
+      "name": "Gupta (Miss) Nisha Banshidhar",
+      "registration_no": "G-32660",
+      "registration_date": "30-04-2003",
+      "state_medical_council": "Gujarat Medical Council",
+      "state_code": "GUJ",
+      "year_of_info": 2003,
+      "qualification": "M.B.B.S.",
+      "qualification_year": "1996",
+      "university": "U. Ranchi",
+      "additional_qualifications": [
+        {
+          "qualification": "M.D. (Obstetrics & Gynaecology)",
+          "year": "2016",
+          "university": "U. Ranchi"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Banshi&reg_no=&year=&state=GUJ&page=1&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13587818,
+      "name": "Lakhani (Mrs) Vishakha  Jay  (Nee: Koli (Miss) Vishakha Vivek)",
+      "registration_no": "G-48063",
+      "registration_date": "21-09-2012",
+      "state_medical_council": "Gujarat Medical Council",
+      "state_code": "GUJ",
+      "year_of_info": 2012,
+      "qualification": "M.B.B.S.",
+      "qualification_year": "2008",
+      "university": "Maharashtra University of Health Sciences, Nashik",
+      "additional_qualifications": [
+        {
+          "qualification": "F.C.P.S. (Midwifery & Gynaecology)",
+          "year": "2016",
+          "university": "College of Physicians & Surgeons of Mumbai"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=3&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 13559522,
+      "name": "Pardananl (Mrs.) HIRAMANI Ram (Nee Lakhani (Miss)  Hiramani Chhuttaram",
+      "registration_no": "G-19757",
+      "registration_date": "13-01-1992",
+      "state_medical_council": "Gujarat Medical Council",
+      "state_code": "GUJ",
+      "year_of_info": 1992,
+      "qualification": "M.B.B.S.",
+      "qualification_year": "1967",
+      "university": "U. Bombay",
+      "additional_qualifications": [
+        {
+          "qualification": "D.G.O.",
+          "year": "2016",
+          "university": "U. Baroda"
+        },
+        {
+          "qualification": "M.D. (Obstetrics & Gynaecology)",
+          "year": "2016",
+          "university": "U. Baroda"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Lakhani&reg_no=&year=&state=GUJ&page=5&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    },
+    {
+      "id": 1160602,
+      "name": "Lulu Cyriac",
+      "registration_no": "45596",
+      "registration_date": "06-07-2012",
+      "state_medical_council": "Kerala State Medical Council",
+      "state_code": "TC",
+      "year_of_info": 2012,
+      "qualification": "MBBS",
+      "qualification_year": "2012",
+      "university": "Cochin University of Science & Technology",
+      "additional_qualifications": [
+        {
+          "qualification": "MD(Gen.Med.)",
+          "year": "2016",
+          "university": "Rajiv Gandhi University of Health Sciences"
+        }
+      ],
+      "source_url": "https://nmc.org.in/indian-medical-register/search?search_type=advance&name=Cyriac&reg_no=&year=&state=TC&page=3&per_page=25",
+      "identity_status": "REVIEW",
+      "first_registration_confirmed": false
+    }
+  ],
+  "sampling_note": "Qualification matches within bounded name searches only; not a representative specialty census."
+}
