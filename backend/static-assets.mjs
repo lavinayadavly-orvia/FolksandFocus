@@ -1,4 +1,5 @@
 const assets = new Set([
+  'publication-analytics.mjs', 'publication-analytics-ui.mjs', 'publication-resolution.mjs',
   'reported-experience.mjs',
   'geography.mjs', 'geography-ui.mjs', 'location-reviews.mjs',
   'listening-analytics.mjs',

@@ -1,4 +1,4 @@
-# DOLytics Metabolic Intelligence
+# DOL Nodes Metabolic Intelligence
 
 A professional, locally runnable product prototype for governed obesity and metabolic expert intelligence in India.
 
@@ -10,7 +10,7 @@ The service models resolved HCP identities, source-linked evidence, verified soc
 
 Safety detections are potential cases only and must remain human-reviewed. The current HCP, publication, institution, news and social-account records are public-source dossiers with explicit source URLs and review states. Empty safety and claim queues remain empty until an authorised source is connected. Analyst tiers are classifications, not clinical-authority scores.
 
-# DOLytics
+# DOL Nodes
 
 ## Two-axis intelligence backend
 

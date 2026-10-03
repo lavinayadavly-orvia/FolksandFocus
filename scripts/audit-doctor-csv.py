@@ -18,6 +18,14 @@ def normalized(value):
     return ' '.join(re.findall(r'[^\W_]+', text))
 
 
+def file_sha256(source):
+    digest = hashlib.sha256()
+    with source.open('rb') as handle:
+        for chunk in iter(lambda: handle.read(1048576), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def specialties(value):
     rules = {
         'Cardiology': r'cardiol|cardio\s*log',
@@ -52,7 +60,7 @@ def audit(source, cohort_path, output):
                'rowsWithQualification': 0, 'rowsWithInstitution': 0, 'rowsWithCity': 0}
     specialty_counts = collections.Counter()
     overlaps = []
-    with tempfile.TemporaryDirectory(prefix='dolytics-csv-audit-') as temp:
+    with tempfile.TemporaryDirectory(prefix='dol-nodes-csv-audit-') as temp:
         db = sqlite3.connect(str(Path(temp) / 'keys.sqlite'))
         db.execute('CREATE TABLE records (rowid INTEGER, sourceid TEXT, name TEXT, digest TEXT, payload TEXT)')
         db.execute('CREATE TABLE contacts (rowid INTEGER, name TEXT, emailhash TEXT)')
@@ -126,7 +134,7 @@ def audit(source, cohort_path, output):
                    overlapEvidenceCounts=dict(collections.Counter(r['matchBasis'] for r in overlaps)),
                    specialtiesAsReported=dict(specialty_counts.most_common()))
     output.mkdir(parents=True, exist_ok=True)
-    report = {'source': str(source), 'sourceSha256': hashlib.file_digest(source.open('rb'), 'sha256').hexdigest(),
+    report = {'source': str(source), 'sourceSha256': file_sha256(source),
               'cohortSha256': hashlib.sha256(cohort_bytes).hexdigest(), 'checkedAt': datetime.now(timezone.utc).isoformat(),
               'summary': summary, 'limitations': ['Email syntax is not deliverability or account ownership.',
               'Non-UTF-8 bytes are retained with surrogateescape and flagged; no source encoding is guessed.',

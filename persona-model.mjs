@@ -2,11 +2,11 @@ import { EXPERIENCE_TIERS } from './experience.mjs';
 import {classifyExperience} from './reported-experience.mjs';
 import {statementSourceKey} from './statement-quality.mjs';
 export const personaGroups=[
-  {id:'Trailblazers',name:'Trailblazers',description:'35+ years · Enduring authority',color:'#303943'},
-  {id:'Trendsetters',name:'Trendsetters',description:'25–34 years · Established experience',color:'#087f91'},
-  {id:'Rising Stars',name:'Rising Stars',description:'18–24 years · Experienced voices',color:'#315bc3'},
-  {id:'Early Sparks',name:'Early Sparks',description:'Under 10 years · Getting noticed',color:'#936425'},
-  {id:'Frontline Fair',name:'Frontline Fair',description:'10–17 years · Frontline experience',color:'#93536b'}
+  {id:'Trailblazers',name:'Trailblazers',description:'35+ years · Enduring authority',color:'#172b50'},
+  {id:'Trendsetters',name:'Trendsetters',description:'25–34 years · Established experience',color:'#b94e08'},
+  {id:'Rising Stars',name:'Rising Stars',description:'18–24 years · Experienced voices',color:'#7342b5'},
+  {id:'Early Sparks',name:'Early Sparks',description:'Under 10 years · Getting noticed',color:'#9163c4'},
+  {id:'Frontline Fair',name:'Frontline Fair',description:'10–17 years · Frontline experience',color:'#b51f79'}
 ];
 export function visibleProfileCohort(profiles){
   return profiles.filter(p=>!p.candidate&&personaGroups.some(g=>inPersonaGroup(p,g.id)));

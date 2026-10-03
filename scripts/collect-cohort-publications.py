@@ -30,7 +30,7 @@ def request(endpoint, params, cache):
     for attempt in range(3):
         try:
             time.sleep(0.6 + attempt * 3)
-            req = urllib.request.Request(url, headers={"User-Agent": "DOLyticsResearch/1.0 (public bibliographic metadata)"})
+            req = urllib.request.Request(url, headers={"User-Agent": "DOLNodesResearch/1.0 (public bibliographic metadata)"})
             with urllib.request.urlopen(req, timeout=45) as response:
                 body = response.read().decode("utf-8")
             if '"error"' in body.lower() or "<ERROR>" in body:
@@ -121,7 +121,7 @@ def main():
         hospitals = ' OR '.join(term + '[Affiliation]' for term in ['Manipal', 'Max', 'KIMS', 'Krishna Institute', 'Aster', 'Medicover', 'Medanta', 'Kauvery', 'CARE', 'Marengo'])
         query = f'({terms}) AND ({hospitals}) AND ("{args.start}"[Date - Publication] : "{args.end}"[Date - Publication])'
         try:
-            result = request("esearch.fcgi", {"db": "pubmed", "term": query, "retmode": "json", "retmax": 9999, "tool": "dolytics"}, cache)
+            result = request("esearch.fcgi", {"db": "pubmed", "term": query, "retmode": "json", "retmax": 9999, "tool": "dol-nodes"}, cache)
             found = json.loads(result["body"])["esearchresult"]
             ids = found["idlist"]
             search = {"cohortIds": [d["cohort_id"] for d in batch], "query": query, "sourceUrl": result["url"],
@@ -129,7 +129,7 @@ def main():
                       "status": "COMPLETE" if len(ids) == int(found["count"]) else "TRUNCATED", "pmids": ids,
                       "queryTranslation": found.get("querytranslation"), "warnings": found.get("warninglist", {})}
             for start in range(0, len(ids), 150):
-                source = request("efetch.fcgi", {"db": "pubmed", "id": ",".join(ids[start:start + 150]), "retmode": "xml", "tool": "dolytics"}, cache)
+                source = request("efetch.fcgi", {"db": "pubmed", "id": ",".join(ids[start:start + 150]), "retmode": "xml", "tool": "dol-nodes"}, cache)
                 root = ET.fromstring(source["body"])
                 for node in root.findall("PubmedArticle"):
                     record = parse_article(node, source)

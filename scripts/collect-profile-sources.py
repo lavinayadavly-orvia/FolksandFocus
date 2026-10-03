@@ -13,7 +13,7 @@ from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
 
-AGENT = 'DOLyticsResearch/1.0'
+AGENT = 'DOLNodesResearch/1.0'
 
 
 def now():

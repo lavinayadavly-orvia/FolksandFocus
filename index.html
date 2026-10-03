@@ -5,18 +5,18 @@
   <script>if(location.protocol==="file:")location.replace("https://folksandfocus.pages.dev/")</script>
   <meta name="description" content="Governed India obesity and metabolic expert intelligence workspace.">
   <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png">
-  <title>DOLytics | Metabolic Intelligence</title><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./workspace.css"><link rel="stylesheet" href="./persona.css"><link rel="stylesheet" href="./listening.css">
+  <title>DOL Nodes | Metabolic Intelligence</title><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./workspace.css"><link rel="stylesheet" href="./persona.css"><link rel="stylesheet" href="./listening.css">
 </head>
 <body class="welcome-mode"><div class="app-shell">
   <header class="global-header">
-    <div class="brand brand-lockup"><div class="dolytics-wordmark"><img src="./folksandfocus-mark.png" alt="" width="40" height="40"><strong>DOLytics</strong></div><small>Practice. Perspective. Precision.</small></div>
+    <div class="brand brand-lockup"><div class="dol-nodes-wordmark"><img src="./folksandfocus-mark.png" alt="" width="40" height="40"><strong>DOL Nodes</strong></div><small>Practice. Perspective. Precision.</small></div>
     <nav aria-label="Primary navigation">
       <button class="nav-item active" data-view="welcome">HOME</button>
       <button class="nav-item" data-view="persona">Dashboard</button>
       <button class="nav-item" data-view="analytics">Analytics</button>
       <button class="nav-item" data-view="governance"><span>07</span>Governance</button>
     </nav>
-    <div class="sidebar-foot"><div class="system-state"><i></i><div><strong>Public-source index</strong><small id="pipelineStamp">Checking latest refresh</small></div></div><div class="user"><span>LY</span><div><strong>India Medical Affairs</strong><small>Reviewer workspace</small></div></div></div>
+    <div class="sidebar-foot"><div class="system-state"><i></i><div><strong>Public Sources</strong><small id="pipelineStamp">Checking for Updates</small></div></div><div class="user"><span>LY</span><div><strong>India Medical Affairs</strong><small>Reviewer workspace</small></div></div></div>
   </header>
   <main>
     <header class="topbar"><div><p class="kicker" id="viewKicker">India / Metabolic intelligence</p><h1 id="viewTitle">Dashboard</h1></div><div class="header-actions"><button class="quiet-button" id="refreshButton">Refresh index</button><button class="primary-button" id="exportButton">Export records</button></div></header>
@@ -25,13 +25,13 @@
       <div class="welcome-hero">
         <div class="welcome-copy"><h1>Welcome</h1></div>
       <div class="welcome-destinations"><button data-jump="persona"><strong>Open Dashboard</strong><b aria-hidden="true">&#8594;</b></button></div>
-      <footer class="welcome-footer"><strong>DOLytics</strong><span>Practice. Perspective. Precision.</span></footer>
+      <footer class="welcome-footer"><strong>DOL Nodes</strong><span>Practice. Perspective. Precision.</span></footer>
       </div>
-      <div class="welcome-art"><img src="./welcome-physicians-voices.png?v=20261001-wider-clinic" alt="Wide soft pastel clinic sketch of a senior doctor holding a blue notebook, with loose silver-streaked hair and bold rectangular glasses, an attentive nurse, research poster and window overlooking greenery" width="1254" height="1254" fetchpriority="high"></div>
+      <div class="welcome-art"><img src="./welcome-physicians-voices.png?v=20261003-connected-nodes" alt="Watercolor illustration of four clinicians sharing perspectives through a network of connected digital nodes" width="1254" height="1254" fetchpriority="high"></div>
     </section>
     <section id="persona" class="view" aria-label="Clinical Voices workspace"><div id="personaRoot" aria-live="polite">Loading profiles...</div></section>
     <section id="listening" class="view" aria-label="Social listening workspace"><div id="listeningRoot"></div></section>
-    <section id="analytics" class="view"><div class="persona-intro"><h2>Analytics</h2></div><p role="status">Loading cohort analytics...</p></section>
+    <section id="analytics" class="view"><div class="persona-intro"><h2>Analytics</h2></div><p role="status">Loading Analytics...</p></section>
     <span id="navCaseCount" hidden>0</span>
     <section id="overview" class="view">
       <div class="command-toolbar">
@@ -75,6 +75,6 @@
     <section id="social" class="view"><div class="section-intro"><div><p class="kicker">Public digital activity</p><h2>Social post monitor</h2><p>Track identity-resolved Instagram, YouTube, X and LinkedIn accounts at post level, with capture times and source-linked engagement observations.</p></div><div class="segmented"><button class="active" data-social-filter="ALL">All</button><button data-social-filter="Instagram">Instagram</button><button data-social-filter="YouTube">YouTube</button><button data-social-filter="X">X</button><button data-social-filter="LinkedIn">LinkedIn</button></div></div><div id="socialPlatformSummary" class="social-platform-summary"></div><div class="social-monitor-layout"><section class="panel"><div class="panel-head"><div><p class="kicker">Verified handles</p><h2>Account registry</h2></div><span id="socialAccountCount" class="count-label"></span></div><div id="socialAccountList" class="social-account-list"></div></section><section class="panel"><div class="panel-head"><div><p class="kicker">Captured activity</p><h2>Post ledger</h2></div><span id="socialPostCount" class="count-label"></span></div><div id="socialPostList" class="social-post-list"></div></section></div></section>
     <section id="evidence" class="view"><div class="section-intro"><div><p class="kicker">Claim-level provenance</p><h2>Evidence review queue</h2><p>Every claim remains attached to its source, extraction method and reviewer disposition.</p></div><div class="segmented"><button class="active" data-evidence-filter="ALL">All</button><button data-evidence-filter="REVIEW">Needs review</button><button data-evidence-filter="ACCEPTED">Accepted</button></div></div><div id="evidenceList" class="evidence-list"></div></section>
     <section id="safety" class="view"><div class="section-intro"><div><p class="kicker">Human-in-the-loop pharmacovigilance</p><h2>Safety review desk</h2><p>Potential cases are screened for the four minimum criteria. The model never submits a report.</p></div><div class="sla-key"><span><i class="critical"></i>&lt; 8h</span><span><i class="watch"></i>8–24h</span></div></div><div class="safety-layout"><div id="caseBoard" class="case-board"></div><aside class="panel case-detail" id="caseDetail"></aside></div></section>
-    <section id="governance" class="view"><div class="governance-grid"><section class="panel span-7"><div class="panel-head"><div><p class="kicker">Model card</p><h2>Influence score v2.3</h2></div><span class="version-badge">Approved</span></div><div id="modelCard" class="model-card"></div></section><section class="panel span-5"><div class="panel-head"><div><p class="kicker">Data controls</p><h2>Operating guardrails</h2></div></div><div id="guardrails" class="guardrail-list"></div></section><section class="panel span-12"><div class="panel-head"><div><p class="kicker">Traceability</p><h2>Recent audit events</h2></div></div><div id="auditLog" class="audit-log"></div></section></div></section>
+    <section id="governance" class="view"><div class="governance-grid"><section class="panel span-7"><div class="panel-head"><div><p class="kicker">Model card</p><h2>Data Quality</h2></div></div><div id="modelCard" class="model-card"></div></section><section class="panel span-5"><div class="panel-head"><div><p class="kicker">Data controls</p><h2>Review Standards</h2></div></div><div id="guardrails" class="guardrail-list"></div></section><section class="panel span-12"><div class="panel-head"><div><p class="kicker">Traceability</p><h2>Recent audit events</h2></div></div><div id="auditLog" class="audit-log"></div></section></div></section>
   </main>
 </div><script src="./app.js"></script><script src="./coverage.js"></script><script type="module" src="./persona-ui.mjs"></script><script type="module" src="./listening-ui.mjs"></script></body></html>

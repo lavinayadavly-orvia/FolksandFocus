@@ -72,3 +72,23 @@ export function geographyCuts(people){
   const multiState=rows.filter(r=>r.state==='Multiple States').length;
   return {rows,states,mapped:mapped.length,total:unique.length,multiState,located:mapped.length+multiState,unresolved:rows.filter(r=>r.state==='Location Unresolved').length};
 }
+
+export function geographyPresence(people){
+  const d=geographyCuts(people),states=new Map();
+  for(const row of d.rows){
+    const p=row.person;
+    const review=reviewedLocations.find(r=>(p.footprints||[]).some(f=>f.url?.replace(/\/$/,'')===r.profileUrl))||branchEvidence(p);
+    const text=(review?.locations||p.practiceLocations||[p.city,...(p.locationsAsReported||[]),p.affiliation]).filter(Boolean).join(' ; ');
+    const hits=rules.flatMap(r=>[...text.matchAll(r.regex)].map(m=>({...r,start:m.index,end:m.index+m[0].length})));
+    const cities=hits.filter(h=>!hits.some(o=>o!==h&&o.start<=h.start&&o.end>=h.end&&o.end-o.start>h.end-h.start));
+    for(const c of cities){
+      if(c.city==='New Delhi'&&/^Delhi NCR/i.test(text.slice(c.start)))continue;
+      if(!states.has(c.state))states.set(c.state,{label:c.state,people:new Map(),cities:new Map()});
+      const s=states.get(c.state);s.people.set(p.id,p);
+      if(!s.cities.has(c.city))s.cities.set(c.city,new Map());
+      s.cities.get(c.city).set(p.id,p);
+    }
+  }
+  const sort=(a,b)=>b.count-a.count||a.label.localeCompare(b.label);
+  return {total:d.total,states:[...states.values()].map(s=>({label:s.label,count:s.people.size,people:[...s.people.values()],cities:[...s.cities].map(([label,members])=>({label,count:members.size,people:[...members.values()]})).sort(sort)})).sort(sort)};
+}

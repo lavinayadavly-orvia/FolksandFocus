@@ -1,4 +1,20 @@
 import test from 'node:test';
+import {publicationAnalytics} from './publication-analytics.mjs';
+test('publication types exclude funding metadata without dropping the associated paper',()=>{
+ const collection={publications:[{id:'a',title:'Earlier',publicationTypes:['Journal Article','Research Support, Non-U.S. Gov\'t'],dates:[{Year:'2025'}]},{id:'b',title:'Later',publicationTypes:['Review'],dates:[{Year:'2026'}]}],links:['a','b'].map(publicationId=>({publicationId,cohortId:'doctor',status:'SOURCE_CORROBORATED'}))};
+ const d=publicationAnalytics([{id:'doctor'}],collection);
+ assert.equal(d.total,2);assert.equal(d.records[0].id,'b');
+ assert.deepEqual(d.types.map(t=>t.label).sort(),['Journal Article','Review']);
+});
+test('publication charts reconcile clickable datasets with unique papers and confirmed cohort authors',()=>{
+ const people=[{id:'a',name:'One',persona:'Trailblazers'},{id:'b',name:'Two',persona:'Early Sparks'}];
+ const paper={id:'p',title:'Paper',publicationTypes:['Journal Article','Review'],dates:[]};
+ const collection={publications:[paper,paper,{id:'unlinked',publicationTypes:['Trial']}],links:[{publicationId:'p',cohortId:'a',status:'SOURCE_CORROBORATED'},{publicationId:'p',cohortId:'a',status:'SOURCE_CORROBORATED'},{publicationId:'p',cohortId:'b',status:'REVIEW_REQUIRED'}]};
+ const d=publicationAnalytics(people,collection);
+ assert.equal(d.total,1);assert.equal(d.doctors,1);assert.equal(d.types[0].label,'Review');assert.equal(d.types[0].count,d.types[0].records.length);
+ assert.equal(publicationAnalytics(people,collection,'Early Sparks').total,0);
+ for(const name of ['publication-analytics.mjs','publication-analytics-ui.mjs','publication-resolution.mjs'])assert.equal(publicAsset('/'+name),name);
+});
 import {execFileSync} from 'node:child_process';
 test('cohort snapshot retains qualification estimates with a Workers epoch initialization clock',()=>{
  const output=execFileSync(process.execPath,['--input-type=module','-e',`
@@ -25,7 +41,16 @@ test('reviewed cohort geography is complete and counts reconcile without duplica
   for(const city of review.locations)assert.notEqual(locateDoctor({city}).city,'City Unresolved');
  }
 });
-import {geographyCuts,locateDoctor,applyReviewedGeography} from './geography.mjs';
+import {geographyCuts,geographyPresence,locateDoctor,applyReviewedGeography} from './geography.mjs';
+test('ranked geographic presence includes cross-state practice without inflating unique totals',()=>{
+ const person=applyReviewedGeography({id:'multi',footprints:[{url:'https://www.maxhealthcare.in/doctor/dr-ambrish-mithal'}]});
+ const d=geographyPresence([person,person,{id:'ncr',locationsAsReported:['Noida - Delhi NCR']}]);
+ assert.equal(d.total,2);
+ assert.equal(d.states.find(s=>s.label==='Delhi').count,1);
+ assert.equal(d.states.find(s=>s.label==='Haryana').count,1);
+ assert.equal(d.states.find(s=>s.label==='Uttar Pradesh').count,1);
+ assert.equal(d.states.find(s=>s.label==='Delhi').cities[0].label,'New Delhi');
+});
 test('reviewed current practice replaces stale city and preserves multiple practice locations',()=>{
  const p=applyReviewedGeography({id:'pandey',city:'New Delhi',locationsAsReported:['New Delhi'],footprints:[{url:'https://www.maxhealthcare.in/doctor/dr-amrendra-kumar-pandey'}]});
  assert.equal(p.city,'Ghaziabad');assert.deepEqual(p.locationsAsReported,['New Delhi']);

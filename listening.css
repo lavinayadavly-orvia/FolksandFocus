@@ -1,4 +1,4 @@
-/* Social Listening workspace. Uses the DOLytics coverage surfaces: dark metric strip, grey control band,
+/* Social Listening workspace. Uses the DOL Nodes coverage surfaces: dark metric strip, grey control band,
    white analysis panels, square data marks. Colour is reserved for sentiment and controls. */
 #listening .ls-analytic-panel{padding:24px 28px;background:#fff}
 #listening .ls-quality-band{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #dce6ed;border-bottom:1px solid #dce6ed}
@@ -518,3 +518,33 @@ body:has(#listening.active-view) .topbar,body:has(#persona.active-view) .topbar{
 .ls-social-activity-row {display:grid;grid-template-columns:110px minmax(0,1fr) 48px;align-items:center;gap:16px;font-size:18px}
 .ls-social-activity-row meter {width:100%;height:28px}
 @media(max-width:600px){.ls-social-activity-row{grid-template-columns:82px minmax(0,1fr) 32px;gap:8px;font-size:16px}}
+/* Shared brand palette. Semantic status colours retain their own labels. */
+:root{--ink:#172b50;--muted:#586176;--line:#dce0e8;--paper:#fff;--bg:#f7f8fc;--soft:#f0f1f7;--forest:#172b50;--blue:#7342b5;--blue-soft:#f0eafa;--green:#7342b5;--mint:#f0eafa;--amber:#b94e08;--amber-soft:#fff0e4;--coral:#b51f79;--brand-navy:#172b50;--brand-orange:#b94e08;--brand-purple:#7342b5;--brand-magenta:#b51f79}
+body:not(.welcome-mode){background:#f7f8fc;color:#172b50}
+.global-header{background:#fff;border-bottom-color:#dce0e8}
+.global-header .nav-item{color:#172b50}.global-header .nav-item.active{background:#172b50;color:#fff}.global-header .nav-item:hover:not(.active){background:#f0eafa}
+.brand strong,.an-heading,.an-heading h2,.geo-chart h3,.pub-layout h3,.persona-intro h2,.vd-heading h2{color:#172b50}
+.an-tabs a,.an-tabs button{color:#586176}.an-tabs a[aria-current=page],.an-tabs button[aria-current=page]{color:#7342b5;border-bottom-color:#7342b5}
+.geo-bar-fill,.an-track i{background:#172b50}.an-bars button:nth-child(2n) i{background:#7342b5}
+.geo-ranked-row:hover,.geo-ranked-row:focus-visible,.pub-type-list button:hover{background:#f2ecfa}
+.geo-ranking header a,.geo-table a,.pub-drawer td a,.pub-drawer td button{color:#7342b5}
+.pub-type-list button strong{color:#b51f79}.pub-summary strong{color:#172b50}.pub-summary>span:first-of-type{color:#b94e08}.pub-summary>span:last-of-type{color:#b51f79}
+.pub-drawer{color:#172b50;border-left-color:#dce0e8}.pub-drawer::backdrop{background:#172b5066}.pub-drawer [data-close]{background:#f0eafa;color:#7342b5;border-color:#d4c1ed}
+.pub-label{fill:#172b50}.pub-axis{fill:#586176}
+.persona-color-0{--tile-fill:#e3e8f3;--tile-hover:#d5def0}.persona-color-1{--tile-fill:#ffeadb;--tile-hover:#ffddc4}.persona-color-2{--tile-fill:#ede3fa;--tile-hover:#e1d0f6}.persona-color-3{--tile-fill:#f4edfc;--tile-hover:#eaddf8}.persona-color-4{--tile-fill:#fbe2f0;--tile-hover:#f5cde4}
+.persona-tile,.persona-tile h3{color:#172b50}.persona-color-1 .persona-tile-total strong{color:#b94e08}.persona-color-2 .persona-tile-total strong,.persona-color-3 .persona-tile-total strong{color:#7342b5}.persona-color-4 .persona-tile-total strong{color:#b51f79}
+.vd-cloud button{color:#172b50}.vd-cloud button:nth-child(3n+2){color:#7342b5}.vd-cloud button:nth-child(3n){color:#b51f79}.vd-cloud button:nth-child(5n){color:#b94e08}
+.vd-cloud-lead{background:#f3eef9;border-color:#e0d6ee}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #7342b5;outline-offset:3px}
+/* Saturated category surfaces, with quiet backgrounds for reading. */
+.persona-color-0{--tile-fill:#172b50;--tile-hover:#233e6d}.persona-color-1{--tile-fill:#b94e08;--tile-hover:#a34104}.persona-color-2{--tile-fill:#7342b5;--tile-hover:#60329f}.persona-color-3{--tile-fill:#503786;--tile-hover:#40296f}.persona-color-4{--tile-fill:#b51f79;--tile-hover:#991663}
+.persona-tile{border-color:transparent;box-shadow:0 6px 16px #172b5014}.persona-tile,.persona-tile h3,.persona-tile .persona-tile-total strong,.persona-tile small,.persona-tile-counts{color:#fff}
+.pub-summary{background:#172b50;padding:20px 24px;gap:24px;flex-wrap:wrap;margin:18px 0 0}
+.pub-summary strong{color:#fff;font-size:24px}.pub-summary>span:first-of-type{color:#ffc078}.pub-summary>span:last-of-type{color:#ff9dd5}
+.pub-layout{background:#fff;padding:24px;gap:32px}.pub-layout>section:first-child{background:#f5f0fc;padding:20px;min-width:0}.pub-layout>section:last-child{min-width:0}
+.pub-type-list{display:grid;gap:8px}.pub-type-list button{--type-ink:#172b50;--type-bg:#edf1f9;background:var(--type-bg);border:0;border-radius:6px;padding:13px 15px;color:var(--type-ink)}
+.pub-type-list button:nth-child(4n+2){--type-ink:#9c4006;--type-bg:#fff0e2}.pub-type-list button:nth-child(4n+3){--type-ink:#6533a6;--type-bg:#f0e7fc}.pub-type-list button:nth-child(4n){--type-ink:#a2196b;--type-bg:#fce6f3}
+.pub-type-list button strong{background:var(--type-ink);color:#fff;padding:5px 9px;border-radius:4px;font-size:17px;flex-shrink:0}.pub-type-list button:hover{box-shadow:inset 0 0 0 2px var(--type-ink);background:var(--type-bg)}
+.pub-radar g[data-type] circle:nth-child(2){fill:#b51f79;stroke-width:3}.pub-radar g[data-type]:focus circle:nth-child(2),.pub-radar g[data-type]:hover circle:nth-child(2){fill:#b94e08;r:8}
+.an-tabs a[aria-current=page],.an-tabs button[aria-current=page]{background:#f0e7fc;color:#6533a6}
+@media(max-width:700px){.pub-summary{padding:16px;gap:14px}.pub-summary strong{font-size:21px}.pub-layout{padding:14px;gap:20px}.pub-layout>section:first-child{padding:10px}}

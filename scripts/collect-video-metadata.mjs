@@ -23,7 +23,7 @@ for(const [index,video] of videos.entries()){
   const record={id:video.id,url:video.url,sourceUrl,checkedAt:new Date().toISOString()};
   await delay(1000);
   try{
-    const response=await fetch(sourceUrl,{signal:AbortSignal.timeout(20000),redirect:'error',headers:{'User-Agent':'DOLyticsResearch/1.0','Accept':'application/json'}});
+    const response=await fetch(sourceUrl,{signal:AbortSignal.timeout(20000),redirect:'error',headers:{'User-Agent':'DOLNodesResearch/1.0','Accept':'application/json'}});
     if(!response.ok){
       record.status=`HTTP_${response.status}`;
       if([403,429].includes(response.status))hostRestricted=true;

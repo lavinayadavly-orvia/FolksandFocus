@@ -69,7 +69,7 @@ function statementItem(r) {
 function shell() {
   root.innerHTML = `
   <section class="ls-cohort-strip" id="lsCohortStrip" aria-label="Shared doctor cohort"></section>
-  <div class="ls-focus"><div><strong>Clinical conversation intelligence</strong><small>Public-source collection · ${e(LISTENING_META.updated)} · not live monitoring</small></div><label>Explicit clinical subject<select id="lsSubject"><option value="">All captured discussions</option>${[...new Set(LISTENING_STATEMENTS.flatMap(clinicalSubjects))].sort().map(name=>`<option>${e(name)}</option>`).join('')}</select></label></div>
+  <div class="ls-focus"><div><strong>Clinical conversation intelligence</strong><small>Updated ${e(LISTENING_META.updated)} · Public Sources</small></div><label>Clinical Subject<select id="lsSubject"><option value="">All Discussions</option>${[...new Set(LISTENING_STATEMENTS.flatMap(clinicalSubjects))].sort().map(name=>`<option>${e(name)}</option>`).join('')}</select></label></div>
   <div class="coverage-metrics ls-metrics" id="lsMetrics" aria-live="polite"></div>
   <div class="persona-tabs ls-tabs" role="tablist" aria-label="Social listening views">${TABS.map(([id, name]) => `<button role="tab" id="lsTab-${id}" aria-controls="lsPanel" data-ls-tab="${id}">${name}</button>`).join('')}</div>
   <details class="ls-filter-drawer"><summary id="lsFilterSummary">Filters</summary><div class="ls-controls" id="lsControls">
@@ -181,7 +181,7 @@ function renderMetrics(set) {
       ['Doctors this month', current?.doctors || 0, 'Current month is partial'],
       ['Source pages', summary.sources, `${summary.otherVoices} collective, unnamed or other voices kept separate`]
     ].map(([label, value, note]) => `<div class="coverage-metric"><span>${e(label)}</span><strong>${value}</strong><small>${e(note)}</small></div>`).join('');
-    root.querySelector('#lsCaption').textContent = `${dashboardWindow().start} to ${dashboardWindow().end} · Observed corpus, not exhaustive monitoring · No captured record does not prove no activity`;
+    root.querySelector('#lsCaption').textContent = `${dashboardWindow().start} to ${dashboardWindow().end} · Available Public Activity`;
     return;
   }
   const split = splitOf(set), themes = THEMES.map(t => [t.name, set.filter(r => r.themes.includes(t.name)).length]).sort((a, b) => b[1] - a[1]);
@@ -242,7 +242,7 @@ function overview(set) {
   return `<section class="ls-panel"><p class="chart-eyebrow">EXECUTIVE SUMMARY</p><h2 class="ls-headline">${e(s.headline)}</h2>
     <div class="ls-summary"><div class="ls-story"><p class="chart-eyebrow">THE STORY IN ONE PARAGRAPH</p><p>${bold(s.story)}</p></div>
     <div class="ls-leadership"><p class="chart-eyebrow">THREE THINGS TO TELL YOUR LEADERSHIP</p><ol>${s.leadership.map(x => `<li><span><b>${e(x.lead)}</b> ${e(x.body)}</span></li>`).join('')}</ol></div></div></section>
-  <section class="ls-panel">${heading('Eight signals from the corpus', 'Select a signal to open its evidence')}
+  <section class="ls-panel">${heading('Key Findings', '')}
     <div class="ls-insights">${s.insights.map((x, i) => {
       const n = x.theme ? set.filter(r => r.themes.includes(x.theme)).length : null;
       const target = x.theme ? `data-ls-theme="${e(x.theme)}"` : x.specialtyView ? 'data-ls-go="voices"' : 'data-ls-go="channels"';
@@ -326,7 +326,7 @@ function ledger(set) {
   const sorted = [...set].sort((a, b) => { const va = key === 'themes' ? a.themes[0] : a[key], vb = key === 'themes' ? b.themes[0] : b[key]; return String(va).localeCompare(String(vb)) * dir || (b.date||'').localeCompare(a.date||''); });
   const th = (k, label) => `<th scope="col"><button type="button" data-ls-sort="${k}" aria-sort="${key === k ? (dir > 0 ? 'ascending' : 'descending') : 'none'}">${label}${key === k ? (dir > 0 ? ' ↑' : ' ↓') : ''}</button></th>`;
   return `<section class="ls-panel">${heading('All coded statements', `${set.length} of ${ALL.length} statements · sorted by ${key === 'who' ? 'voice' : key}`)}
-    <p class="chart-caption ls-ledger-note">Every statement behind the charts. The filters above apply here. Each source link opens the page the quote was taken from. ${e(LISTENING_META.corrections)}</p>
+    <p class="chart-caption ls-ledger-note">${e(LISTENING_META.corrections)}</p>
     <div class="table-scroll"><table class="doctor-table ls-ledger"><thead><tr>${th('date', 'Date')}${th('who', 'Who')}<th scope="col">What they said</th>${th('themes', 'Themes')}${th('sentiment', 'Sentiment')}${th('channel', 'Channel')}</tr></thead>
     <tbody>${sorted.map(r => `<tr><td class="ls-nowrap">${fmtDate(r.date)}${r.wave2 ? '<span class="ls-wave">wave 2</span>' : ''}</td><td><b>${e(r.who)}</b><small>${e(r.role)}</small><small class="ls-spec">${e(r.specialty)}</small></td><td>${e(r.text)}${r.paraphrased ? ' <em>(paraphrased)</em>' : ''}<small>${srcLink(r.source)}</small>${r.correction ? `<small class="ls-correction">Note: ${e(r.correction)}</small>` : ''}</td><td><div class="ls-chips">${r.themes.map(t => `<span>${e(t)}</span>`).join('')}</div></td><td>${sentPill(r.sentiment)}<small>${e(r.framing)}</small></td><td>${e(r.channel)}</td></tr>`).join('') || `<tr><td colspan="6">${empty('No statements match these filters.')}</td></tr>`}</tbody></table></div></section>`;
 }
@@ -374,7 +374,7 @@ function compactTopics(set) {
     const net=n?Math.round((t.positive-t.negative)/n*100):0;
     return `<button class="ls-analytic-row" data-topic-evidence="${e(t.topic)}" title="${e(t.topic)}: ${t.activities} activities, ${t.doctors} doctors; ${t.positive} positive, ${t.mixed} mixed, ${t.negative} negative statements. Open evidence."><span class="ls-analytic-name">${e(t.topic)}</span><span class="ls-volume-plot"><i style="width:${t.activities/max*100}%"></i><b style="left:${t.activities/max*100}%">${t.activities}</b></span><span class="ls-analytic-doctors">${t.doctors}</span><span class="ls-net-plot"><i style="left:${(net+100)/2}%"></i><b style="left:${Math.min(88,Math.max(12,(net+100)/2))}%">${signed(net)}</b></span></button>`;
   }).join('');
-  return `<section class="ls-panel ls-analytic-panel">${heading('What clinicians are discussing', 'Activity volume and coded sentiment')}<div class="ls-analytic-scroll"><div class="ls-analytic-chart"><div class="ls-analytic-head"><span>Topic</span><span>Public activities</span><span>Doctors</span><span>Net sentiment</span></div><div class="ls-analytic-axis"><span></span><span class="ls-volume-axis">${ticks.map(t=>`<i style="left:${t/max*100}%">${t}</i>`).join('')}</span><span></span><span class="ls-net-axis"><i>−100</i><i>0</i><i>+100</i></span></div>${chartRows||empty('No captured activities match these filters.')}</div></div><div class="ls-analytic-notes"><span>One activity = one attributed voice per source page. Topics overlap.</span><span>Net = positive % − negative % of coded statements; not brand sentiment.</span></div></section>`;
+  return `<section class="ls-panel ls-analytic-panel">${heading('What clinicians are discussing', 'Activity volume and coded sentiment')}<div class="ls-analytic-scroll"><div class="ls-analytic-chart"><div class="ls-analytic-head"><span>Topic</span><span>Public activities</span><span>Doctors</span><span>Net sentiment</span></div><div class="ls-analytic-axis"><span></span><span class="ls-volume-axis">${ticks.map(t=>`<i style="left:${t/max*100}%">${t}</i>`).join('')}</span><span></span><span class="ls-net-axis"><i>−100</i><i>0</i><i>+100</i></span></div>${chartRows||empty('No captured activities match these filters.')}</div></div><div class="ls-analytic-notes"><span>Activities by Topic · Topics May Overlap</span><span>Net Sentiment = Positive % − Negative %</span></div></section>`;
 }
 let doctorsPage=0;
 let doctorReturnQuery=null;
@@ -492,7 +492,7 @@ function render() {
   const lensToolbar=root.querySelector('.ls-lens-toolbar');
   if(state.tab==='channels')root.querySelector('#lsControls').after(lensToolbar);
   else root.querySelector('#lsPanel').before(lensToolbar);
-  root.querySelector('#lsTopicMethod').textContent=topicBasis==='discovered'?'Recurring phrases across at least two source labels and two voices in the corpus. Lexical candidates, not inferred clinical conclusions.':'Original report annotations; these are predefined categories, not discovered themes.';
+  root.querySelector('#lsTopicMethod').textContent=topicBasis==='discovered'?'Recurring Topics':'Report Categories';
   const comparisons=compareLens(baseRows(),lens,SOURCE_LINKS,dashboardWindow());
   const focus=root.querySelector('#lsLensValue');
   focus.innerHTML=`<option value="">All ${e(LENSES[lens].toLowerCase())} mentions</option>${comparisons.map(item=>`<option value="${e(item.value)}">${e(item.value)}</option>`).join('')}${lensValue&&!comparisons.some(item=>item.value===lensValue)?`<option value="${e(lensValue)}">${e(lensValue)} (no matches)</option>`:''}`;
@@ -552,7 +552,7 @@ if (root) {
       window: dashboardWindow(), selected_month: selectedMonth || null, subject, topic_basis: topicBasis, lens, lens_value: lensValue, doctor: evidenceDoctor||null, filters: state.filters,
       ...summary, statement_records: set.map(r => ({ ...r, source_evidence: SOURCE_LINKS[r.source] })) };
     const url = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }));
-    const a = document.createElement('a'); a.href = url; a.download = 'dolytics-listening.json'; a.click();
+    const a = document.createElement('a'); a.href = url; a.download = 'dol-nodes-listening.json'; a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }, true);
   document.querySelector('#refreshButton')?.addEventListener('click', event => {

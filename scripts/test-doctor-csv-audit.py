@@ -1,5 +1,6 @@
 import importlib.util
 import unittest
+import tempfile
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location('audit', Path(__file__).with_name('audit-doctor-csv.py'))
@@ -8,6 +9,12 @@ spec.loader.exec_module(audit)
 
 
 class AuditTests(unittest.TestCase):
+    def test_streamed_checksum_works_on_supported_python(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'source.csv'
+            source.write_bytes(b'abc')
+            self.assertEqual(audit.file_sha256(source), 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad')
+
     def test_name_normalization_does_not_equate_different_initials(self):
         self.assertEqual(audit.normalized('Dr. Praveen Chandra'), 'praveen chandra')
         self.assertNotEqual(audit.normalized('Dr A Kumar'), audit.normalized('Dr B Kumar'))
