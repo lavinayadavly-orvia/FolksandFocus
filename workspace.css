@@ -219,6 +219,6 @@ body { background:#dfe4eb; color:#101216; }
   #coverage .coverage-dashboard { padding:0 16px; }
 }
 .global-header .brand-lockup .dol-nodes-wordmark{display:flex;align-items:center;gap:10px}
-.global-header .brand-lockup .dol-nodes-wordmark img{width:40px;height:40px;flex:0 0 40px;object-fit:contain;border-radius:4px}
+.global-header .brand-lockup .dol-nodes-mark{display:block;width:40px;height:40px;flex:0 0 40px;background-image:url('./folksandfocus-mark.png?v=20261003-nodes');background-size:390% auto;background-position:50% 32%;background-repeat:no-repeat}
 .global-header .brand-lockup .dol-nodes-wordmark strong{font-size:25px;font-weight:750;line-height:1.2;color:#203d4a;letter-spacing:0}
 .global-header .brand-lockup small{padding-left:50px}
